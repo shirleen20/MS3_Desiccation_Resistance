@@ -31,6 +31,12 @@ R4_allSigSNP <- read.delim("Geneoverlap/R4_SNP_Gene_forOverlap.txt", header=F) %
 R5_allSigSNP <- read.delim("Geneoverlap/R5_SNP_Gene_forOverlap.txt", header=F) %>% mutate(Round="R5", Present = 1)
 R6_allSigSNP <- read.delim("Geneoverlap/R6_SNP_Gene_forOverlap.txt", header=F) %>% mutate(Round="R6", Present = 1)
 
+
+# Read files for best peaks for each round
+
+R4_rawSigSNP <- read.delim("Geneoverlap/R4_SNP_Gene_forOverlap.txt", header=F) %>% mutate(Round="R4")
+
+
 # Scaffold sizes
 ScafSize <- read.table("Geneoverlap/Btry_masked.fasta.fai", header = FALSE) %>% 
   dplyr::select(V1,V2) %>% rename(CHR = V1, Size = V2) %>% 
@@ -97,6 +103,62 @@ Bt_chr <- function(Scaf){
                                                                      ifelse(Scaf == "NW_024395977.1", "sc25", Scaf)))))))))
   return(Renamed)
 }
+
+
+###############################
+# Read files for best peaks for each round
+
+R4_rawSigSNP <- read.delim("Geneoverlap/Bestpeaks_FDR0.05_R4.tsv", header=T) %>% mutate(Present=1, Round = Rep)
+R5_rawSigSNP <- read.delim("Geneoverlap/Bestpeaks_FDR0.05_R5.tsv", header=T) %>% mutate(Present=1, Round = Rep)
+R6_rawSigSNP <- read.delim("Geneoverlap/Bestpeaks_FDR0.05_R6.tsv", header=T) %>% mutate(Present=1, Round = Rep)
+
+### Do the same for the SNP counts
+Table1_RawCounts <- rbind(R4_rawSigSNP, R5_rawSigSNP, R6_rawSigSNP) %>% 
+  unique() %>% 
+  pivot_wider(id_cols = c(CHR,POS), names_from = Round, values_from = Present, values_fill = 0 ) %>% 
+  mutate(Round = case_when(R4==1 & R5==1 & R6==1 ~ "Fs4+5+6",
+                           R4==1 & R5==1 & R6==0 ~ "Fs4+5",
+                           R4==1 & R5==0 & R6==1 ~ "Fs4+6",
+                           R4==0 & R5==1 & R6==1 ~ "Fs5+6",
+                           R4==1 & R5==0 & R6==0 ~ "F4",
+                           R4==0 & R5==1 & R6==0 ~ "F5",
+                           R4==0 & R5==0 & R6==1 ~ "F6")) %>%
+  left_join(ScafSize, by = c("CHR" = "CHR")) %>% 
+  mutate(CHR = Bt_chr(CHR)) %>% 
+  group_by(CHR, Round, Size, order_idx) %>% 
+  summarise(TotalSNPCount = length(unique(POS)))
+
+SNPRawCount <- Table1_RawCounts %>% 
+  pivot_wider(id_cols = c(CHR,Size, order_idx), names_from = Round, values_from = TotalSNPCount, values_fill = 0) %>% 
+  relocate(`Fs5+6`,F4, F5, F6, .after = `Fs4+6`)
+
+SNPRawCountHeat <- SNPRawCount %>% 
+  pivot_longer(cols = `Fs4+5`:F6, names_to = "Round", values_to = "Count") %>% 
+  mutate(logDensity =  if_else(Count > 0, log10(Count/Size), -8)) %>%  # chose  -8 to improve contrast
+  mutate(Count = if_else(Count == 0, "", as.character(Count))) %>% 
+  mutate(Round = factor(Round, levels = c("Fs4+5+6", "Fs4+5", "Fs4+6", "Fs5+6", "F4", "F5", "F6"))) %>% ungroup() %>% 
+  arrange(desc(order_idx)) %>% 
+  mutate(NewChr = if_else(grepl("NW", CHR), paste0("sc",sprintf("%05.0f", Size/100), " ", gsub(" ", " ", sprintf("%7.3f", Size/1000000))) , 
+                          if_else(CHR == "MT", paste0("MT ", gsub(" ", " ", sprintf("%7.3f", Size/1000000))),
+                                  paste0(CHR, " ", gsub(" ", " ", paste0(sprintf("%7.3f", Size/1000000))) )))) %>% 
+  mutate(NewChr = factor(NewChr, levels = unique(NewChr)))
+
+
+SNPRawplot <- ggplot(SNPRawCountHeat, aes(x = Round, y = NewChr, fill = logDensity, label = Count)) + 
+  geom_tile() + 
+  geom_label(label.size = NA, fill = NA, size = 2) +
+  scale_fill_gradient(low = "white", high = "red") +
+  labs(title = "ggplot2 Heatmap") +
+  theme_minimal() +
+  theme(plot.title = element_blank(), axis.title.x = element_blank(), 
+        axis.title.y = element_blank(), legend.position = "none", axis.text=element_text(size=6))
+
+
+ggsave(plot = SNPRawplot, width = 4.0, height = 5.0, units = "in", dpi = 300,filename = "Figures/Figure 3 showing overlapping Raw SNPs in the three QTL generations.jpg")
+
+###################################
+
+
 
 #____________________Making Table X+1_________________
 
@@ -170,7 +232,7 @@ Geneplot <- ggplot(GeneCountHeat, aes(x = Round, y = NewChr, fill = logDensity, 
   theme(plot.title = element_blank(), axis.title.x = element_blank(), 
         axis.title.y = element_blank(), legend.position = "none", axis.text=element_text(size=6))
 
-ggsave(plot = Geneplot, width = 4.0, height = 5.0, units = "in", dpi = 300,filename = "Geneoverlap/Figure S2 showing overlapping genes in the three QTL generations.jpg")
+ggsave(plot = Geneplot, width = 4.0, height = 5.0, units = "in", dpi = 300,filename = "Figures/Figure S2 showing overlapping genes in the three QTL generations.jpg")
 
 ### Do the same for the SNP counts
 
@@ -196,22 +258,22 @@ SNPplot <- ggplot(SNPCountHeat, aes(x = Round, y = NewChr, fill = logDensity, la
         axis.title.y = element_blank(), legend.position = "none", axis.text=element_text(size=6))
 
 
-ggsave(plot = SNPplot, width = 4.0, height = 5.0, units = "in", dpi = 300,filename = "Geneoverlap/Figure 3 showing overlapping SNPs in the three QTL generations.jpg")
+ggsave(plot = SNPplot, width = 4.0, height = 5.0, units = "in", dpi = 300,filename = "Figures/Figure 3 showing overlapping SNPs in the three QTL generations.jpg")
 
 
 #________________________Make Table X+2_____________
 ############## Supplementary table with all significant SNPs and their directionality
-Alleles_all <- read.delim("GOdata_updated/All_AF_allsigSNPs.txt", header=T) %>% 
+Alleles_all <- read.delim("Geneoverlap/All_AF_allsigSNPs.txt", header=T) %>% 
   dplyr::select(1,2,3,5,4,6) %>% 
   mutate(across(c(QTLF4_High.QTLF4_Low2, F5_High.QTLF5_Low2, QTLF6_High2.QTLF6_Low2),~ map_chr(str_split(.x, ",\\s*"),
                                                                                                ~ paste(signif(as.numeric(.x), 3), collapse = ", "))))
 
 ###
-All_sigSNPs <- rbind(read.table("GOdata_updated/R4_FDR0.05.tsv", header = TRUE) %>% 
+All_sigSNPs <- rbind(read.table("Geneoverlap/R4_FDR0.05.tsv", header = TRUE) %>% 
                        dplyr::select(1,2,3,5) %>% mutate(Round = "R4") %>% rename(FDR = fet_fdr_H2vsL2_R4),
-                     read.table("GOdata_updated/R5_FDR0.05.tsv", header = TRUE) %>% 
+                     read.table("Geneoverlap/R5_FDR0.05.tsv", header = TRUE) %>% 
                        dplyr::select(1,2,3,5) %>% mutate(Round = "R5") %>% rename(FDR = fet_fdr_H2H1vsL2_R5),
-                     read.table("GOdata_updated/R6_FDR0.05.tsv", header = TRUE) %>% 
+                     read.table("Geneoverlap/R6_FDR0.05.tsv", header = TRUE) %>% 
                        dplyr::select(1,2,3,5) %>% mutate(Round = "R6") %>% rename(FDR = fet_fdr_H2vsL2_R6)) %>% 
   pivot_wider(id_cols = CHR:REF, names_from = Round, values_from = FDR) %>% 
   left_join(Alleles_all) %>% 
@@ -236,13 +298,13 @@ All_sigSNPs <- rbind(read.table("GOdata_updated/R4_FDR0.05.tsv", header = TRUE) 
                                          if_else(R5_FDR < 0.05 & R6_FDR < 0.05, R5vsR6, "None"))))
 
 # save this table to be used as supplementary dataset 1
-# write.csv(All_sigSNPs, "GeneOverlap/Supplementary_dataset_All_sigSNPs.csv", row.names = FALSE)
+write.csv(All_sigSNPs, "Geneoverlap/Supplementary_dataset_All_sigSNPs.csv", row.names = FALSE)
 
 
 #_____________________________________________________________________________
 
 ###  This is for all SNPs that are close to genes (within 5000 bp)
-Alleles <- read.delim("GOdata_updated/All_AF.txt", header=T) %>% 
+Alleles <- read.delim("Geneoverlap/All_AF.txt", header=T) %>% 
   dplyr::select(1,2,3,5,4,6) %>% 
   mutate(across(c(QTLF4_High.QTLF4_Low2, F5_High.QTLF5_Low2, QTLF6_High2.QTLF6_Low2),~ map_chr(str_split(.x, ",\\s*"),
                                                                                                ~ paste(signif(as.numeric(.x), 3), collapse = ", ")))) 
@@ -253,7 +315,7 @@ Allele_directions <- Alleles %>%
                 R6_diff = QTLF6_High2.QTLF6_Low2) %>% 
   mutate(CHR = Bt_chr(CHR))
 
-All_sigSNPs_Genes <- read.delim("GOdata_updated/All_SNP_association.txt", header=T) %>%
+All_sigSNPs_Genes <- read.delim("Geneoverlap/All_SNP_association.txt", header=T) %>%
   dplyr::select(1,2,3,7,8,9) %>%
   left_join(Alleles) %>%
   separate(REF, into = c("REF","Major","Minor"), sep =",") %>%
@@ -328,13 +390,13 @@ CommonSNPs_16genes <- CommonGenesTable_OverlapSNPsOnly %>%
   group_by(CHR, Gene, OverlapRound, Effect_combined) %>% 
   summarise(Count = n()) %>% 
   group_by(CHR, Gene, Effect_combined) %>% 
-  mutate(Total = sum(Count)) %>% 
+  dplyr::mutate(Total = sum(Count)) %>% 
   pivot_wider(id_cols = c(CHR, Gene, Effect_combined, Total), names_from = OverlapRound, values_from = Count, values_fill = 0) %>% 
-  mutate(R4 = R4 + `R4, R5` + `R4, R6`,  R5 = R5 + `R4, R5` + `R5, R6`,  R6 = R6 + `R4, R6` + `R5, R6`) %>% 
-  mutate(`Number of SNPs` = paste0(Total, " (", R4, ", ", R5, ", ", R6,")")) %>% 
+  dplyr::mutate(R4 = R4 + `R4, R5` + `R4, R6`,  R5 = R5 + `R4, R5` + `R5, R6`,  R6 = R6 + `R4, R6` + `R5, R6`) %>% 
+  dplyr::mutate(`Number of SNPs` = paste0(Total, " (", R4, ", ", R5, ", ", R6,")")) %>% 
   dplyr::select(-c(`R4, R5`, `R4, R6`, `R5, R6`,Total, R4, R5, R6)) %>% ungroup() %>% 
   group_by(Gene) %>% 
-  mutate(HighestEffect = RankCategories(Effect_combined))
+  dplyr::mutate(HighestEffect = RankCategories(Effect_combined))
 
 # Overlapping SNPs in the same direction only  
 CommonSNPs_HighestImpact <- CommonGenesTable_OverlapSNPsOnly %>% 
