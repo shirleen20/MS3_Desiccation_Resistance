@@ -31,12 +31,6 @@ R4_allSigSNP <- read.delim("Geneoverlap/R4_SNP_Gene_forOverlap.txt", header=F) %
 R5_allSigSNP <- read.delim("Geneoverlap/R5_SNP_Gene_forOverlap.txt", header=F) %>% mutate(Round="R5", Present = 1)
 R6_allSigSNP <- read.delim("Geneoverlap/R6_SNP_Gene_forOverlap.txt", header=F) %>% mutate(Round="R6", Present = 1)
 
-
-# Read files for best peaks for each round
-
-R4_rawSigSNP <- read.delim("Geneoverlap/R4_SNP_Gene_forOverlap.txt", header=F) %>% mutate(Round="R4")
-
-
 # Scaffold sizes
 ScafSize <- read.table("Geneoverlap/Btry_masked.fasta.fai", header = FALSE) %>% 
   dplyr::select(V1,V2) %>% rename(CHR = V1, Size = V2) %>% 
@@ -153,8 +147,22 @@ SNPRawplot <- ggplot(SNPRawCountHeat, aes(x = Round, y = NewChr, fill = logDensi
   theme(plot.title = element_blank(), axis.title.x = element_blank(), 
         axis.title.y = element_blank(), legend.position = "none", axis.text=element_text(size=6))
 
+ggsave(plot = SNPRawplot, width = 4.0, height = 5.0, units = "in", dpi = 300,filename = "Figures/Figure X showing overlapping Raw SNPs in the three QTL generations.jpg")
 
-ggsave(plot = SNPRawplot, width = 4.0, height = 5.0, units = "in", dpi = 300,filename = "Figures/Figure 3 showing overlapping Raw SNPs in the three QTL generations.jpg")
+
+SNPRawplot_big_sc <- SNPRawCountHeat %>% 
+  dplyr::filter(CHR %in% c("Chr2","Chr3","Chr4","Chr5","Chr6","MT","sc11","sc07","sc25")) %>% 
+  ggplot(aes(x = Round, y = NewChr, fill = logDensity, label = Count)) + 
+  geom_tile() + 
+  geom_label(label.size = NA, fill = NA, size = 2) +
+  scale_fill_gradient(low = "white", high = "red") +
+  labs(title = "ggplot2 Heatmap") +
+  theme_minimal() +
+  theme(plot.title = element_blank(), axis.title.x = element_blank(), 
+        axis.title.y = element_blank(), legend.position = "none", axis.text=element_text(size=6))
+
+
+ggsave(plot = SNPRawplot_big_sc, width = 4.0, height = 5.0, units = "in", dpi = 300,filename = "Figures/Figure 3 showing overlapping Raw SNPs in the three QTL generations.jpg")
 
 ###################################
 
