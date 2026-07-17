@@ -162,7 +162,7 @@ SNPRawplot_big_sc <- SNPRawCountHeat %>%
         axis.title.y = element_blank(), legend.position = "none", axis.text=element_text(size=6))
 
 
-ggsave(plot = SNPRawplot_big_sc, width = 4.0, height = 5.0, units = "in", dpi = 300,filename = "Figures/Figure 3 showing overlapping Raw SNPs in the three QTL generations.jpg")
+ggsave(plot = SNPRawplot_big_sc, width = 3.0, height = 1.5, units = "in", dpi = 300,filename = "Figures/Figure 3 showing overlapping Raw SNPs in the three QTL generations.jpg")
 
 ###################################
 
