@@ -309,33 +309,7 @@ Geneplot <- ggplot(GeneCountHeat, aes(x = Round, y = NewChr, fill = logDensity, 
   theme(plot.title = element_blank(), axis.title.x = element_blank(), 
         axis.title.y = element_blank(), legend.position = "none", axis.text=element_text(size=6))
 
-ggsave(plot = Geneplot, width = 4.0, height = 5.0, units = "in", dpi = 300,filename = "Figures/Figure S2 showing overlapping genes in the three QTL generations.jpg")
-
-### Do the same for the SNP counts
-
-SNPCountHeat <- SNPCount %>% 
-  pivot_longer(cols = `Fs4+5`:F6, names_to = "Round", values_to = "Count") %>% 
-  mutate(logDensity =  if_else(Count > 0, log10(Count/Size), -8)) %>%  # chose  -8 to improve contrast
-  mutate(Count = if_else(Count == 0, "", as.character(Count))) %>% 
-  mutate(Round = factor(Round, levels = c("Fs4+5+6", "Fs4+5", "Fs4+6", "Fs5+6", "F4", "F5", "F6"))) %>% ungroup() %>% 
-  arrange(desc(order_idx)) %>% 
-  mutate(NewChr = if_else(grepl("NW", CHR), paste0("sc",sprintf("%05.0f", Size/100), " ", gsub(" ", " ", sprintf("%7.3f", Size/1000000))) , 
-                          if_else(CHR == "MT", paste0("MT ", gsub(" ", " ", sprintf("%7.3f", Size/1000000))),
-                                  paste0(CHR, " ", gsub(" ", " ", paste0(sprintf("%7.3f", Size/1000000))) )))) %>% 
-  mutate(NewChr = factor(NewChr, levels = unique(NewChr)))
-
-
-SNPplot <- ggplot(SNPCountHeat, aes(x = Round, y = NewChr, fill = logDensity, label = Count)) + 
-  geom_tile() + 
-  geom_label(label.size = NA, fill = NA, size = 2) +
-  scale_fill_gradient(low = "white", high = "red") +
-  labs(title = "ggplot2 Heatmap") +
-  theme_minimal() +
-  theme(plot.title = element_blank(), axis.title.x = element_blank(), 
-        axis.title.y = element_blank(), legend.position = "none", axis.text=element_text(size=6))
-
-
-#ggsave(plot = SNPplot, width = 4.0, height = 5.0, units = "in", dpi = 300,filename = "Figures/Figure X showing overlapping SNPs in the three QTL generations.jpg")
+ggsave(plot = Geneplot, width = 4.0, height = 5.0, units = "in", dpi = 300,filename = "Figures/Figure S3 showing overlapping genes in the three QTL generations.jpg")
 
 
 #________________________Make Table X+2_____________
@@ -509,7 +483,7 @@ CommonSNPs_16genesFinal <- CommonGenesTable_OverlapSNPsOnly %>%
   relocate(`Number of shared SNPs`, .before = HighestEffect_overlap) %>% 
   relocate(`Number of SNPs`, .before = HighestEffect) %>% 
   dplyr::select(-c(Total:Total_shared)) #%>% 
-#write.csv("GeneOverlap/SNPs_Common_in_3_rounds_genestable.csv", row.names = FALSE)
+  #write.csv("Results/Genes_and_SNPs_Common_in_all_three_rounds.csv", row.names = FALSE)
 
 
 #_________________________________________________________
@@ -567,7 +541,7 @@ CommonGenesTable_OverlapSNPsOnly_2plus <- OverlapSNP_complex2plus %>%
   dplyr::select(-R4,-R5,-R6,-OverlapSNPs) %>% ungroup() %>% 
   dplyr::filter(grepl("R4.*R5|R5.*R4", OverlapRound) |grepl("R4.*R6|R6.*R4", 
                                                             OverlapRound) |grepl("R5.*R6|R6.*R5", OverlapRound)) #%>% 
-  #write.csv("GeneOverlap/Longer_table_Geneoverlap_2_or_more_rounds.csv", row.names = FALSE)
+  #write.csv("Results/Genes_and_SNPs_in_two_or_more_rounds.csv", row.names = FALSE)
 
 
 # Overlapping SNPs in the same direction only  
@@ -603,7 +577,7 @@ CommonSNPs_209genesFinal <- CommonGenesTable_OverlapSNPsOnly_2plus %>%
   relocate(`Number of shared SNPs`, .before = HighestEffect_overlap) %>% 
   relocate(`Number of SNPs`, .before = HighestEffect) %>% 
   dplyr::select(-c(Total:Total_shared)) #%>% 
-#write.csv("GeneOverlap/CommonSNPs_209genes_2_or_more_rounds.csv", row.names = FALSE)
+#write.csv("Results/CommonSNPs_209genes_2_or_more_rounds.csv", row.names = FALSE)
 
 #_____________________________________________________________________________________________
 
