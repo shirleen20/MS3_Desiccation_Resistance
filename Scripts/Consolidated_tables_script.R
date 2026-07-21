@@ -137,18 +137,7 @@ SNPRawCountHeat <- SNPRawCount %>%
                                   paste0(CHR, " ", gsub(" ", " ", paste0(sprintf("%7.3f", Size/1000000))) )))) %>% 
   mutate(NewChr = factor(NewChr, levels = unique(NewChr)))
 
-
-SNPRawplot <- ggplot(SNPRawCountHeat, aes(x = Round, y = NewChr, fill = logDensity, label = Count)) + 
-  geom_tile() + 
-  geom_label(label.size = NA, fill = NA, size = 2) +
-  scale_fill_gradient(low = "white", high = "red") +
-  labs(title = "ggplot2 Heatmap") +
-  theme_minimal() +
-  theme(plot.title = element_blank(), axis.title.x = element_blank(), 
-        axis.title.y = element_blank(), legend.position = "none", axis.text=element_text(size=6))
-
-ggsave(plot = SNPRawplot, width = 4.0, height = 5.0, units = "in", dpi = 300,filename = "Figures/Figure X showing overlapping Raw SNPs in the three QTL generations.jpg")
-
+# heatmap showing Sig SNPs in big scafoold - main text figure:
 
 SNPRawplot_big_sc <- SNPRawCountHeat %>% 
   dplyr::filter(CHR %in% c("Chr2","Chr3","Chr4","Chr5","Chr6","MT","sc11","sc07","sc25")) %>% 
@@ -163,6 +152,86 @@ SNPRawplot_big_sc <- SNPRawCountHeat %>%
 
 
 ggsave(plot = SNPRawplot_big_sc, width = 3.0, height = 1.5, units = "in", dpi = 300,filename = "Figures/Figure 3 showing overlapping Raw SNPs in the three QTL generations.jpg")
+
+# Now make supplementary figure showing Sig SNPs in all scaffolds
+
+SNPRawCountHeat_supp <- SNPRawCount %>% 
+  pivot_longer(cols = `Fs4+5`:F6, names_to = "Round", values_to = "Count") %>% 
+  mutate(logDensity =  if_else(Count > 0, log10(Count/Size), -8)) %>%  # chose  -8 to improve contrast
+  mutate(Count = if_else(Count == 0, "", as.character(Count))) %>% 
+  mutate(Round = factor(Round, levels = c("Fs4+5+6", "Fs4+5", "Fs4+6", "Fs5+6", "F4", "F5", "F6"))) %>% ungroup() %>% 
+  arrange(desc(order_idx)) %>% 
+  mutate(NewChr = Bt_chr(CHR), NewChr = if_else(CHR %in% c("NC_014611.1","NC_052499.1","NC_052500.1","NC_052501.1","NC_052502.1","NC_052503.1",
+                 "NW_024395824.1","NW_024396366.1","NW_024395977.1"),
+      paste0(NewChr, " ", sprintf("%.3f", Size/1000000)),paste0(CHR, " ", sprintf("%.3f", Size/1000000)))) %>% 
+  mutate(NewChr = factor(NewChr, levels = unique(NewChr)))
+
+SNPRawplotsupp <- ggplot(SNPRawCountHeat_supp, aes(x = Round, y = NewChr, fill = logDensity, label = Count)) + 
+  geom_tile() + 
+  geom_label(label.size = NA, fill = NA, size = 2) +
+  scale_fill_gradient(low = "white", high = "red") +
+  labs(title = "ggplot2 Heatmap") +
+  theme_minimal() +
+  theme(plot.title = element_blank(), axis.title.x = element_blank(), 
+        axis.title.y = element_blank(), legend.position = "none", axis.text=element_text(size=6))
+
+
+# ggsave(plot = SNPRawplot, width = 6.0, height = 10.0, units = "in", dpi = 300,filename = "Figures/Figure S2 showing all significant Raw SNPs across all scaffolds.jpg")
+
+
+#_____plot SNPRawplotsupp above is too messy to read so split it into multiple pages with 60 scaffolds each____
+
+SNPRawCountHeat_supp <- SNPRawCount %>% 
+  pivot_longer(cols = `Fs4+5`:F6, names_to = "Round", values_to = "Count") %>% 
+  mutate(logDensity =  if_else(Count > 0, log10(Count/Size), -8)) %>%  # chose  -8 to improve contrast
+  mutate(Count = if_else(Count == 0, "", as.character(Count))) %>% 
+  mutate(Round = factor(Round, levels = c("Fs4+5+6", "Fs4+5", "Fs4+6", "Fs5+6", "F4", "F5", "F6"))) %>% 
+  ungroup() %>% 
+  mutate(BtName = Bt_chr(CHR),NewChr = if_else(CHR %in% c("NC_014611.1","NC_052499.1","NC_052500.1",  # create scaffold labels
+                 "NC_052501.1","NC_052502.1","NC_052503.1","NW_024395824.1","NW_024396366.1","NW_024395977.1"),
+      paste0(BtName, " ", sprintf("%.3f", Size/1000000)),
+      paste0(CHR, " ", sprintf("%.3f", Size/1000000))))
+
+# create desired scaffold order 
+main_chr <- c("Chr2","Chr3","Chr4","Chr5","Chr6","MT","sc25", "sc11","sc07")
+
+scaffold_order <- SNPRawCountHeat_supp %>%
+  distinct(CHR, NewChr, Size) %>%
+  mutate(BtName = Bt_chr(CHR)) %>%
+  arrange(match(BtName, main_chr, nomatch = 999),desc(Size)) %>%
+  pull(NewChr)
+
+# apply order
+SNPRawCountHeat_supp <- SNPRawCountHeat_supp %>%
+  mutate(NewChr = factor(NewChr,levels = scaffold_order))
+
+# create pages of 50 scaffolds
+scaffolds_per_page <- 50
+
+scaffold_levels <- levels(SNPRawCountHeat_supp$NewChr)
+
+scaffold_pages <- split(scaffold_levels,ceiling(seq_along(scaffold_levels) / scaffolds_per_page))
+
+
+# plot each page
+for(i in seq_along(scaffold_pages)) {
+  plot_data <- SNPRawCountHeat_supp %>%
+    filter(NewChr %in% scaffold_pages[[i]]) %>%
+    mutate(NewChr = factor(NewChr,levels = rev(scaffold_pages[[i]])))
+  
+p <- ggplot(plot_data,aes(x = Round,y = NewChr,fill = logDensity,label = Count)) +
+    geom_tile() + geom_text(size = 2) +
+    scale_fill_gradient(low = "white",high = "red") +
+    theme_minimal() +
+    theme(axis.title = element_blank(),legend.position = "none",axis.text = element_text(size = 6))
+  
+# keep tile size consistent between pages
+n_scaffolds <- length(unique(plot_data$NewChr))
+plot_height <- n_scaffolds * 0.18 + 1
+  
+  
+ggsave(filename = paste0("Figures/SNP_heatmap_all_scaffolds_", i, ".jpg"),
+       plot = p,width = 6,height = plot_height,units = "in",dpi = 300)}
 
 ###################################
 
@@ -266,7 +335,7 @@ SNPplot <- ggplot(SNPCountHeat, aes(x = Round, y = NewChr, fill = logDensity, la
         axis.title.y = element_blank(), legend.position = "none", axis.text=element_text(size=6))
 
 
-ggsave(plot = SNPplot, width = 4.0, height = 5.0, units = "in", dpi = 300,filename = "Figures/Figure 3 showing overlapping SNPs in the three QTL generations.jpg")
+#ggsave(plot = SNPplot, width = 4.0, height = 5.0, units = "in", dpi = 300,filename = "Figures/Figure X showing overlapping SNPs in the three QTL generations.jpg")
 
 
 #________________________Make Table X+2_____________
@@ -400,9 +469,9 @@ CommonSNPs_16genes <- CommonGenesTable_OverlapSNPsOnly %>%
   group_by(CHR, Gene, Effect_combined) %>% 
   dplyr::mutate(Total = sum(Count)) %>% 
   pivot_wider(id_cols = c(CHR, Gene, Effect_combined, Total), names_from = OverlapRound, values_from = Count, values_fill = 0) %>% 
-  dplyr::mutate(R4 = R4 + `R4, R5` + `R4, R6`,  R5 = R5 + `R4, R5` + `R5, R6`,  R6 = R6 + `R4, R6` + `R5, R6`) %>% 
+  dplyr::mutate(R4 = R4 + `R4, R5` + `R4, R5, R6`,  R5 = R5 + `R4, R5` + `R5, R6` + `R4, R5, R6`, R6 = R6 + `R5, R6` + `R4, R5, R6`) %>% # we removed "R4,R6 because it doenst appear"
   dplyr::mutate(`Number of SNPs` = paste0(Total, " (", R4, ", ", R5, ", ", R6,")")) %>% 
-  dplyr::select(-c(`R4, R5`, `R4, R6`, `R5, R6`,Total, R4, R5, R6)) %>% ungroup() %>% 
+  dplyr::select(-c(`R4, R5`, `R5, R6`,`R4, R5, R6`, Total, R4, R5, R6)) %>% ungroup() %>% 
   group_by(Gene) %>% 
   dplyr::mutate(HighestEffect = RankCategories(Effect_combined))
 
@@ -432,10 +501,10 @@ CommonSNPs_16genesFinal <- CommonGenesTable_OverlapSNPsOnly %>%
   group_by(CHR, Gene) %>% 
   mutate(Total = sum(Count)) %>% ungroup() %>%  
   pivot_wider(id_cols = c(Gene, CHR, HighestEffect, HighestEffect_overlap, Total), names_from = OverlapRound, values_from = c(Count, Count_same), values_fill = 0) %>% 
-  mutate(R4 = Count_R4 + `Count_R4, R5` + `Count_R4, R6`,  R5 = Count_R5 + `Count_R4, R5` + `Count_R5, R6`,  R6 = Count_R6 + `Count_R4, R6` + `Count_R5, R6`) %>% 
+  mutate(R4 = Count_R4 + `Count_R4, R5` + `Count_R4, R5, R6`,  R5 = Count_R5 + `Count_R4, R5` + `Count_R5, R6` + `Count_R4, R5, R6`,  R6 = Count_R6 + `Count_R4, R5, R6` + `Count_R5, R6`) %>% 
   mutate(`Number of SNPs` = paste0(Total, " (", R4, ", ", R5, ", ", R6,")"),
-         `Total_shared` = `Count_same_R4, R5` + `Count_same_R4, R6` + `Count_same_R5, R6`) %>% 
-  mutate(`Number of shared SNPs` = paste0(Total_shared, " (", `Count_same_R4, R5`, ", ", `Count_same_R4, R6`, ", ", `Count_same_R5, R6`,")")) %>% 
+         `Total_shared` = `Count_same_R4, R5` + `Count_same_R4, R5, R6` + `Count_same_R5, R6`) %>% 
+  mutate(`Number of shared SNPs` = paste0(Total_shared, " (", `Count_same_R4, R5`, ", ", `Count_same_R4, R5, R6`, ", ", `Count_same_R5, R6`,")")) %>% 
   mutate(HighestEffect_overlap = if_else(Total_shared == 0, "-", HighestEffect_overlap)) %>% 
   relocate(`Number of shared SNPs`, .before = HighestEffect_overlap) %>% 
   relocate(`Number of SNPs`, .before = HighestEffect) %>% 
@@ -497,8 +566,8 @@ CommonGenesTable_OverlapSNPsOnly_2plus <- OverlapSNP_complex2plus %>%
   mutate(Effect_combined = paste(unique(Effect), collapse = ", ")) %>% 
   dplyr::select(-R4,-R5,-R6,-OverlapSNPs) %>% ungroup() %>% 
   dplyr::filter(grepl("R4.*R5|R5.*R4", OverlapRound) |grepl("R4.*R6|R6.*R4", 
-                                                            OverlapRound) |grepl("R5.*R6|R6.*R5", OverlapRound)) %>% 
-  write.csv("GeneOverlap/Longer_table_Geneoverlap_2_or_more_rounds.csv", row.names = FALSE)
+                                                            OverlapRound) |grepl("R5.*R6|R6.*R5", OverlapRound)) #%>% 
+  #write.csv("GeneOverlap/Longer_table_Geneoverlap_2_or_more_rounds.csv", row.names = FALSE)
 
 
 # Overlapping SNPs in the same direction only  
