@@ -74,7 +74,7 @@ extract_TERM2NAME("CC", 3)
 ################# InterProScan Data ####################
 
 # a. Read the InterProScan TSV file
-df <- read_tsv("KeggPathway/Btry_Prot5000bp_interPro_Clean.tsv", col_names = FALSE, show_col_types = FALSE)
+df <- read_tsv("Geneoverlap/Btry_Prot5000bp_interPro_Clean.tsv", col_names = FALSE, show_col_types = FALSE)
 
 # c. Split column 2 by '|' and remove bracketed annotations
 df_clean <- df %>%

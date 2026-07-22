@@ -349,7 +349,7 @@ All_sigSNPs <- rbind(read.table("Geneoverlap/R4_FDR0.05.tsv", header = TRUE) %>%
                                          if_else(R5_FDR < 0.05 & R6_FDR < 0.05, R5vsR6, "None"))))
 
 # save this table to be used as supplementary dataset 1
-write.csv(All_sigSNPs, "Geneoverlap/Supplementary_dataset_All_sigSNPs.csv", row.names = FALSE)
+write.csv(All_sigSNPs, "Results/Supplementary_dataset_All_sigSNPs.csv", row.names = FALSE)
 
 
 #_____________________________________________________________________________
