@@ -92,11 +92,16 @@ head(df_clean)
 
 ###################### Extract Gene and All GO from emapper file #######
 
+
+###Remove Mitochondrial genes from universe################
+MT <- c("COX1", "COX2", "COX3", "ND1", "ND2", "ND3", "ND4", "ND5", "ND6", "ND4L", "CYTB", "ATP6", "ATP8")
+
 Universe_AllProtein <- read.delim("Geneoverlap/universe.txt", header =F) %>% 
-  dplyr::rename(Protein_ID=V1, Transcript_ID=V2, GeneID=V3, Gene=V4)
+  dplyr::rename(Protein_ID=V1, Transcript_ID=V2, GeneID=V3, Gene=V4) %>% 
+  dplyr::filter(!Gene %in% MT)
 
 # Step 1: Read Excel as tibble
-data <- read_excel("Geneoverlap/Emapper.annotations_B.tryoni.xlsx",sheet=1) %>% data.table() %>% 
+data <- read_excel("Geneoverlap/out.emapper.annotations.xlsx",sheet=1) %>% data.table() %>% 
   left_join(Universe_AllProtein, by = c("query"="Protein_ID"))
 
 # Step 2: Clean and split GO terms
@@ -560,8 +565,8 @@ term_files_list <- list(
 # Process GO for R4 at fdr_0.01
 
 run_ORA(
-  diff_gene_file = "GOdata_updated/Test_proteins_snpEffR4_identified_no-intergenic.txt",
-  universe_file  = "GOdata_updated/universe.txt",
+  diff_gene_file = "Geneoverlap/Test_proteins_snpEffR4_identified_no-intergenic.txt",
+  universe_file  = "Geneoverlap/universe.txt",
   term_pairs     = term_files_list,
   output_dir     = "KeggPathway/ORA_results",
   suffix         = "R4")
@@ -574,8 +579,8 @@ run_ORA(
 
 
 run_ORA(
-  diff_gene_file = "GOdata_updated/Test_proteins_snpEffR5_identified_no-intergenic.txt",
-  universe_file  = "GOdata_updated/universe.txt",
+  diff_gene_file = "Geneoverlap/Test_proteins_snpEffR5_identified_no-intergenic.txt",
+  universe_file  = "Geneoverlap/universe.txt",
   term_pairs     = term_files_list,
   output_dir     = "KeggPathway/ORA_results",
   suffix         = "R5")
@@ -587,8 +592,8 @@ run_ORA(
 
 
 run_ORA(
-  diff_gene_file = "GOdata_updated/Test_proteins_snpEffR6_identified_no-intergenic.txt",
-  universe_file  = "GOdata_updated/universe.txt",
+  diff_gene_file = "Geneoverlap/Test_proteins_snpEffR6_identified_no-intergenic.txt",
+  universe_file  = "Geneoverlap/universe.txt",
   term_pairs     = term_files_list,
   output_dir     = "KeggPathway/ORA_results",
   suffix         = "R6")
@@ -602,7 +607,7 @@ run_ORA(
 
 run_ORA(
   diff_gene_file = "Geneoverlap/Test_proteins_snpEff_Overlap_with_Drossie.txt",
-  universe_file  = "GOdata_updated/universe.txt",
+  universe_file  = "Geneoverlap/universe.txt",
   term_pairs     = term_files_list,
   output_dir     = "KeggPathway/ORA_results",
   suffix         = "Overlap")
