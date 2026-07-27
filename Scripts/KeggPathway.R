@@ -558,6 +558,32 @@ term_files_list <- list(
   Enzyme = list(TERM2GENE = "KeggPathway/Term2Gene_Enzymes.csv",
                 TERM2NAME = "KeggPathway/Term2Name_Enzyme.csv"))
 
+##############################
+
+# Creat data files for ORA_Run with no MT:
+
+
+universe <- read.delim("Geneoverlap/universe.txt",header = FALSE)%>% 
+  dplyr::rename(Protein_ID=V1, Transcript_ID=V2, GeneID=V3, Gene=V4) %>% 
+  dplyr::filter(!Gene %in% MT) %>% 
+  write.table("Geneoverlap/universe_noMT.txt",sep="\t", quote=FALSE,row.names = FALSE, col.names=FALSE)
+  
+
+R4 <- read.delim("Geneoverlap/Test_proteins_snpEffR4_identified_no-intergenic.txt",header = FALSE) %>% 
+  dplyr::rename(Protein_ID=V1, Gene=V2, GeneName=V3) %>% 
+  dplyr::filter(!Gene %in% MT) %>% 
+  write.table("Geneoverlap/Test_proteins_R4_noMT.txt",quote = FALSE,row.names = FALSE,col.names = FALSE)
+
+R5 <- read.delim("Geneoverlap/Test_proteins_snpEffR5_identified_no-intergenic.txt",header = FALSE) %>% 
+  dplyr::rename(Protein_ID=V1, Gene=V2, GeneName=V3) %>% 
+  dplyr::filter(!Gene %in% MT) %>% 
+  write.table("Geneoverlap/Test_proteins_R5_noMT.txt",quote = FALSE,row.names = FALSE,col.names = FALSE)
+
+R6 <- read.delim("Geneoverlap/Test_proteins_snpEffR6_identified_no-intergenic.txt",header = FALSE) %>% 
+  dplyr::rename(Protein_ID=V1, Gene=V2, GeneName=V3) %>% 
+  dplyr::filter(!Gene %in% MT) %>% 
+  write.table("Geneoverlap/Test_proteins_R6_noMT.txt",quote = FALSE,row.names = FALSE,col.names = FALSE)
+
 
 
 ################### R4 #####################
@@ -565,22 +591,20 @@ term_files_list <- list(
 # Process GO for R4 at fdr_0.01
 
 run_ORA(
-  diff_gene_file = "Geneoverlap/Test_proteins_snpEffR4_identified_no-intergenic.txt",
-  universe_file  = "Geneoverlap/universe.txt",
+  diff_gene_file = "Geneoverlap/Test_proteins_R4_noMT.txt",
+  universe_file  = "Geneoverlap/universe_noMT.txt",
   term_pairs     = term_files_list,
   output_dir     = "KeggPathway/ORA_results",
   suffix         = "R4")
-
 
 
 ################### R5 #####################
 
 # Process GO for R5 at fdr_0.01
 
-
 run_ORA(
-  diff_gene_file = "Geneoverlap/Test_proteins_snpEffR5_identified_no-intergenic.txt",
-  universe_file  = "Geneoverlap/universe.txt",
+  diff_gene_file = "Geneoverlap/Test_proteins_R5_noMT.txt",
+  universe_file  = "Geneoverlap/universe_noMT.txt",
   term_pairs     = term_files_list,
   output_dir     = "KeggPathway/ORA_results",
   suffix         = "R5")
@@ -592,7 +616,7 @@ run_ORA(
 
 
 run_ORA(
-  diff_gene_file = "Geneoverlap/Test_proteins_snpEffR6_identified_no-intergenic.txt",
+  diff_gene_file = "Geneoverlap/Test_proteins_R6_noMT.txt",
   universe_file  = "Geneoverlap/universe.txt",
   term_pairs     = term_files_list,
   output_dir     = "KeggPathway/ORA_results",
@@ -602,12 +626,12 @@ run_ORA(
 
 ################### Overlap #####################
 
-# Process GO for R6 at fdr_0.01
+# Process GO for overlap at fdr_0.01
 
 
 run_ORA(
   diff_gene_file = "Geneoverlap/Test_proteins_snpEff_Overlap_with_Drossie.txt",
-  universe_file  = "Geneoverlap/universe.txt",
+  universe_file  = "Geneoverlap/universe_noMT.txt",
   term_pairs     = term_files_list,
   output_dir     = "KeggPathway/ORA_results",
   suffix         = "Overlap")
@@ -615,4 +639,4 @@ run_ORA(
 #____________________________END_______________________________________________________________
 
 
-
+universe_noMT <- read.delim("Geneoverlap/universe_noMT.txt", header = FALSE)

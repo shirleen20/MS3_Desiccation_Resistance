@@ -151,7 +151,7 @@ SNPRawplot_big_sc <- SNPRawCountHeat %>%
         axis.title.y = element_blank(), legend.position = "none", axis.text=element_text(size=6))
 
 
-ggsave(plot = SNPRawplot_big_sc, width = 3.0, height = 1.5, units = "in", dpi = 300,filename = "Figures/Figure 3 showing overlapping Raw SNPs in the three QTL generations.jpg")
+#ggsave(plot = SNPRawplot_big_sc, width = 3.0, height = 1.5, units = "in", dpi = 300,filename = "Figures/Figure 3 showing overlapping Raw SNPs in the three QTL generations.jpg")
 
 # Now make supplementary figure showing Sig SNPs in all scaffolds
 
@@ -230,8 +230,8 @@ n_scaffolds <- length(unique(plot_data$NewChr))
 plot_height <- n_scaffolds * 0.18 + 1
   
   
-ggsave(filename = paste0("Figures/SNP_heatmap_all_scaffolds_", i, ".jpg"),
-       plot = p,width = 6,height = plot_height,units = "in",dpi = 300)}
+#ggsave(filename = paste0("Figures/SNP_heatmap_all_scaffolds_", i, ".jpg"),
+#       plot = p,width = 6,height = plot_height,units = "in",dpi = 300)}
 
 ###################################
 
@@ -309,7 +309,7 @@ Geneplot <- ggplot(GeneCountHeat, aes(x = Round, y = NewChr, fill = logDensity, 
   theme(plot.title = element_blank(), axis.title.x = element_blank(), 
         axis.title.y = element_blank(), legend.position = "none", axis.text=element_text(size=6))
 
-ggsave(plot = Geneplot, width = 4.0, height = 5.0, units = "in", dpi = 300,filename = "Figures/Figure S3 showing overlapping genes in the three QTL generations.jpg")
+#ggsave(plot = Geneplot, width = 4.0, height = 5.0, units = "in", dpi = 300,filename = "Figures/Figure S3 showing overlapping genes in the three QTL generations.jpg")
 
 
 #________________________Make Table X+2_____________
@@ -382,7 +382,7 @@ All_sigSNPs_Genes <- read.delim("Geneoverlap/All_SNP_association.txt", header=T)
                       if_else(R6_FDR < 0.05, ",R6","")) %>% gsub("^,","",.) )
 
 
-### 16 genes that had significant SNPs within 5000 bp in all rounds (not necessarily shared SNPs)
+### 27 genes that had significant SNPs within 5000 bp in all rounds (not necessarily shared SNPs)
 common <- rbind(R4_allSigGene, R5_allSigGene, R6_allSigGene) %>% 
   group_by(V4, Round) %>% 
   mutate(HighestEffect = RankCategories(V3)) %>%
@@ -434,8 +434,8 @@ CommonGenesTable_OverlapSNPsOnly <- OverlapSNP_complex %>%
   dplyr::select(-R4,-R5,-R6,-OverlapSNPs) %>% ungroup() 
 
 
-### Summary of significant SNPs in the 16 genes
-CommonSNPs_16genes <- CommonGenesTable_OverlapSNPsOnly %>% 
+### Summary of significant SNPs in the 27 genes
+CommonSNPs_27genes <- CommonGenesTable_OverlapSNPsOnly %>% 
   dplyr::select(CHR,POS, Gene, Effect_combined, OverlapRound, Direction_sig) %>% unique() %>% 
   dplyr::select(-POS) %>% 
   group_by(CHR, Gene, OverlapRound, Effect_combined) %>% 
@@ -464,7 +464,7 @@ CommonSNPs_HighestImpact <- CommonGenesTable_OverlapSNPsOnly %>%
 
 ###############################################
 ## Final Table 2?
-CommonSNPs_16genesFinal <- CommonGenesTable_OverlapSNPsOnly %>% 
+CommonSNPs_27genesFinal <- CommonGenesTable_OverlapSNPsOnly %>% 
   dplyr::select(CHR,POS, Gene, Effect_combined, OverlapRound, Direction_sig) %>% unique() %>% 
   dplyr::select(-POS) %>% 
   group_by(Gene) %>% 
@@ -492,7 +492,7 @@ CommonSNPs_16genesFinal <- CommonGenesTable_OverlapSNPsOnly %>%
 ################## Supplementary Overlap SNP (same direction), for genes that overlap
 ################ in at least 2 rounds
 ##############
-### 209 genes that had significant SNPs within 5000 bp in 2 or more rounds (not necessarily shared SNPs)
+### 187 genes that had significant SNPs within 5000 bp in 2 or more rounds (not necessarily shared SNPs)
 
 common2plus <- rbind(R4_allSigGene, R5_allSigGene, R6_allSigGene) %>% 
   group_by(V4, Round) %>% 
@@ -558,25 +558,25 @@ CommonSNPs_HighestImpact_2plus <- CommonGenesTable_OverlapSNPsOnly_2plus %>%
   dplyr::select(-HighestEffect) %>% relocate(HighestImpact, .after = Effect)
 
 
-CommonSNPs_209genesFinal <- CommonGenesTable_OverlapSNPsOnly_2plus %>% 
-  dplyr::select(CHR,POS, Gene, Effect_combined, OverlapRound, Direction_sig) %>% unique() %>% 
-  dplyr::select(-POS) %>% 
-  group_by(Gene) %>% 
-  mutate(HighestEffect = RankCategories(Effect_combined),
-         HighestEffect_overlap = RankCategories(Effect_combined[grepl(",", OverlapRound) & Direction_sig == "Same"])) %>% 
-  group_by(CHR, Gene, OverlapRound, HighestEffect, HighestEffect_overlap) %>% 
-  summarise(Count = n(), Count_same = length(Direction_sig[Direction_sig == "Same"])) %>% 
-  group_by(CHR, Gene) %>% 
-  mutate(Total = sum(Count)) %>% ungroup() %>%  
-  pivot_wider(id_cols = c(Gene, CHR, HighestEffect, HighestEffect_overlap, Total), names_from = OverlapRound, values_from = c(Count, Count_same), values_fill = 0) %>% 
-  mutate(R4 = Count_R4 + `Count_R4, R5` + `Count_R4, R6`,  R5 = Count_R5 + `Count_R4, R5` + `Count_R5, R6`,  R6 = Count_R6 + `Count_R4, R6` + `Count_R5, R6`) %>% 
-  mutate(`Number of SNPs` = paste0(Total, " (", R4, ", ", R5, ", ", R6,")"),
-         `Total_shared` = `Count_same_R4, R5` + `Count_same_R4, R6` + `Count_same_R5, R6`) %>% 
-  mutate(`Number of shared SNPs` = paste0(Total_shared, " (", `Count_same_R4, R5`, ", ", `Count_same_R4, R6`, ", ", `Count_same_R5, R6`,")")) %>% 
-  mutate(HighestEffect_overlap = if_else(Total_shared == 0, "-", HighestEffect_overlap)) %>% 
-  relocate(`Number of shared SNPs`, .before = HighestEffect_overlap) %>% 
-  relocate(`Number of SNPs`, .before = HighestEffect) %>% 
-  dplyr::select(-c(Total:Total_shared)) #%>% 
+#CommonSNPs_187genesFinal <- CommonGenesTable_OverlapSNPsOnly_2plus %>% 
+  #dplyr::select(CHR,POS, Gene, Effect_combined, OverlapRound, Direction_sig) %>% unique() %>% 
+  #dplyr::select(-POS) %>% 
+  #group_by(Gene) %>% 
+  #mutate(HighestEffect = RankCategories(Effect_combined),
+        # HighestEffect_overlap = RankCategories(Effect_combined[grepl(",", OverlapRound) & Direction_sig == "Same"])) %>% 
+  #group_by(CHR, Gene, OverlapRound, HighestEffect, HighestEffect_overlap) %>% 
+  #summarise(Count = n(), Count_same = length(Direction_sig[Direction_sig == "Same"])) %>% 
+  #group_by(CHR, Gene) %>% 
+  #mutate(Total = sum(Count)) %>% ungroup() %>%  
+  #pivot_wider(id_cols = c(Gene, CHR, HighestEffect, HighestEffect_overlap, Total), names_from = OverlapRound, values_from = c(Count, Count_same), values_fill = 0) %>% 
+  #mutate(R4 = Count_R4 + `Count_R4, R5` + `Count_R4, R6`,  R5 = Count_R5 + `Count_R4, R5` + `Count_R5, R6`,  R6 = Count_R6 + `Count_R4, R6` + `Count_R5, R6`) %>% 
+  #mutate(`Number of SNPs` = paste0(Total, " (", R4, ", ", R5, ", ", R6,")"),
+  #       `Total_shared` = `Count_same_R4, R5` + `Count_same_R4, R6` + `Count_same_R5, R6`) %>% 
+  #mutate(`Number of shared SNPs` = paste0(Total_shared, " (", `Count_same_R4, R5`, ", ", `Count_same_R4, R6`, ", ", `Count_same_R5, R6`,")")) %>% 
+  #mutate(HighestEffect_overlap = if_else(Total_shared == 0, "-", HighestEffect_overlap)) %>% 
+  #relocate(`Number of shared SNPs`, .before = HighestEffect_overlap) %>% 
+  #relocate(`Number of SNPs`, .before = HighestEffect) %>% 
+  #dplyr::select(-c(Total:Total_shared)) #%>% 
 #write.csv("Results/CommonSNPs_209genes_2_or_more_rounds.csv", row.names = FALSE)
 
 #_____________________________________________________________________________________________
