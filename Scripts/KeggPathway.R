@@ -570,19 +570,18 @@ universe <- read.delim("Geneoverlap/universe.txt",header = FALSE)%>%
   
 
 R4 <- read.delim("Geneoverlap/Test_proteins_snpEffR4_identified_no-intergenic.txt",header = FALSE) %>% 
-  dplyr::rename(Protein_ID=V1, Gene=V2, GeneName=V3) %>% 
-  dplyr::filter(!Gene %in% MT) %>% 
-  write.table("Geneoverlap/Test_proteins_R4_noMT.txt",quote = FALSE,row.names = FALSE,col.names = FALSE)
+  dplyr::filter(!V2 %in% MT)%>% 
+  write.table("Geneoverlap/Test_proteins_R4_noMT.txt",sep = "\t",quote = FALSE,row.names = FALSE,col.names = FALSE)
+
 
 R5 <- read.delim("Geneoverlap/Test_proteins_snpEffR5_identified_no-intergenic.txt",header = FALSE) %>% 
-  dplyr::rename(Protein_ID=V1, Gene=V2, GeneName=V3) %>% 
-  dplyr::filter(!Gene %in% MT) %>% 
-  write.table("Geneoverlap/Test_proteins_R5_noMT.txt",quote = FALSE,row.names = FALSE,col.names = FALSE)
+  dplyr::filter(!V2 %in% MT)%>% 
+  write.table("Geneoverlap/Test_proteins_R5_noMT.txt",sep = "\t",quote = FALSE,row.names = FALSE,col.names = FALSE)
+
 
 R6 <- read.delim("Geneoverlap/Test_proteins_snpEffR6_identified_no-intergenic.txt",header = FALSE) %>% 
-  dplyr::rename(Protein_ID=V1, Gene=V2, GeneName=V3) %>% 
-  dplyr::filter(!Gene %in% MT) %>% 
-  write.table("Geneoverlap/Test_proteins_R6_noMT.txt",quote = FALSE,row.names = FALSE,col.names = FALSE)
+  dplyr::filter(!V2 %in% MT)%>% 
+  write.table("Geneoverlap/Test_proteins_R6_noMT.txt",sep = "\t",quote = FALSE,row.names = FALSE,col.names = FALSE)
 
 
 
@@ -639,4 +638,4 @@ run_ORA(
 #____________________________END_______________________________________________________________
 
 
-universe_noMT <- read.delim("Geneoverlap/universe_noMT.txt", header = FALSE)
+

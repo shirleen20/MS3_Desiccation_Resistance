@@ -498,7 +498,7 @@ common2plus <- rbind(R4_allSigGene, R5_allSigGene, R6_allSigGene) %>%
   group_by(V4, Round) %>% 
   mutate(HighestEffect = RankCategories(V3)) %>%
   ungroup() %>%  
-  dplyr::select(V2, V4, Round, HighestEffect) %>% 
+  dplyr::selVect(V2, V4, Round, HighestEffect) %>% 
   unique() %>% 
   pivot_wider(id_cols = c(V2,V4), names_from = Round, values_from = HighestEffect, values_fill = "") %>% 
   mutate(Overlap = (R4!="") + (R5!="") + (R6!="")) %>% 
