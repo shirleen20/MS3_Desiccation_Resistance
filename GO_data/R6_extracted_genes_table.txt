@@ -1,0 +1,62 @@
+NC_052501.1	83826548	83970776	+	LOC120770426	LOC120770426	protein_coding	7SK snRNA methylphosphate capping enzyme bin3
+NC_052502.1	68331907	68334632	-	LOC120774665	LOC120774665	protein_coding	protein toll-like
+NC_052502.1	24375180	24831193	-	LOC120775939	LOC120775939	protein_coding	low-density lipoprotein receptor-related protein 2 isoform X1
+NW_024396179.1	5451	7440	+	LOC120781192	LOC120781192	rRNA	small subunit ribosomal RNA
+NC_052499.1	4410469	4519225	-	LOC120772771	LOC120772771	protein_coding	neuronal PAS domain-containing protein 2
+NC_052501.1	66133550	66346219	+	LOC120771734	LOC120771734	protein_coding	"protein kinase C, brain isozyme-like isoform X2"
+NC_014611.1	10556	11690	+	CYTB	CYTB	protein_coding	cytochrome b
+NW_024392867.1	1955	2073	+	LOC120779318	LOC120779318	rRNA	5S ribosomal RNA
+NC_014611.1	4121	4798	+	ATP6	ATP6	protein_coding	ATP synthase F0 subunit 6
+NC_014611.1	3966	4127	+	ATP8	ATP8	protein_coding	ATP synthase F0 subunit 8
+NC_052499.1	15709755	15799389	-	LOC120782777	LOC120782777	protein_coding	synapse-associated protein of 47 kDa isoform X8
+NC_052502.1	23873085	23906347	+	LOC120775091	LOC120775091	protein_coding	heat shock protein beta-1 isoform X2
+NC_052501.1	85667647	85670740	-	LOC120772603	LOC120772603	protein_coding	ATP-dependent RNA helicase DDX24
+NC_052499.1	80809076	81115420	+	LOC120778527	LOC120778527	protein_coding	protein toll
+NC_052499.1	14445688	14663226	+	LOC120778338	LOC120778338	protein_coding	mucin-17
+NC_014611.1	9600	9896	-	ND4L	ND4L	protein_coding	NADH dehydrogenase subunit 4L
+NC_052501.1	80129082	80173034	+	LOC120770549	LOC120770549	protein_coding	atypical protein kinase C isoform X4
+NC_052499.1	21024141	21090280	+	LOC120766526	LOC120766526	protein_coding	protein sarah
+NC_052500.1	3262030	3274341	-	LOC120769663	LOC120769663	protein_coding	uncharacterized protein LOC120769663
+NW_024396008.1	7410	9399	+	LOC120781107	LOC120781107	rRNA	small subunit ribosomal RNA
+NC_052503.1	20415465	20750363	+	LOC120777048	LOC120777048	protein_coding	"protein still life, isoforms C/SIF type 2"
+NC_052503.1	16848983	17011202	+	LOC120777509	LOC120777509	protein_coding	serine/arginine repetitive matrix protein 2-like isoform X5
+NC_052499.1	10125534	10523734	-	LOC120781839	LOC120781839	protein_coding	low-density lipoprotein receptor isoform X3
+NC_052502.1	45315421	45545822	+	LOC120773803	LOC120773803	protein_coding	zyxin
+NC_052502.1	26839265	26853107	+	LOC120775215	LOC120775215	protein_coding	uncharacterized protein LOC120775215 isoform X2
+NW_024395977.1	31328969	31465663	-	LOC120780295	LOC120780295	protein_coding	uncharacterized protein LOC120780295 isoform X1
+NC_014611.1	11773	12712	-	ND1	ND1	protein_coding	NADH dehydrogenase subunit 1
+NC_014611.1	273	1295	+	ND2	ND2	protein_coding	NADH dehydrogenase subunit 2
+NC_014611.1	5661	6012	+	ND3	ND3	protein_coding	NADH dehydrogenase subunit 3
+NC_052499.1	43050120	43464343	+	LOC120771228	LOC120771228	protein_coding	mediator of RNA polymerase II transcription subunit 15-like isoform X2
+NC_014611.1	8266	9606	-	ND4	ND4	protein_coding	NADH dehydrogenase subunit 4
+NC_052501.1	85571878	85582259	+	LOC120772281	LOC120772281	protein_coding	dehydrogenase/reductase SDR family member on chromosome X
+NC_014611.1	6465	8184	-	ND5	ND5	protein_coding	NADH dehydrogenase subunit 5
+NC_014611.1	10032	10556	+	ND6	ND6	protein_coding	NADH dehydrogenase subunit 6
+NW_024396382.1	13435	17402	-	LOC120781918	LOC120781918	rRNA	large subunit ribosomal RNA
+NC_052502.1	72861250	73030441	-	LOC120776124	LOC120776124	protein_coding	LOW QUALITY PROTEIN: uncharacterized protein LOC120776124
+NC_052499.1	54489046	54561348	-	LOC120781953	LOC120781953	protein_coding	sodium/hydrogen exchanger 9B2 isoform X2
+NC_052502.1	45121752	45285271	-	LOC120775296	LOC120775296	protein_coding	E3 ubiquitin-protein ligase highwire isoform X1
+NC_052499.1	18929700	18983423	+	LOC120770688	LOC120770688	protein_coding	protein crumbs isoform X6
+NC_052502.1	45178536	45228283	+	LOC120775298	LOC120775298	protein_coding	uncharacterized protein LOC120775298
+NW_024395824.1	6257735	6260328	+	LOC120779557	LOC120779557	pseudogene	NA
+NC_052500.1	80361114	80662410	+	LOC120767249	LOC120767249	protein_coding	uncharacterized protein LOC120767249
+NC_052502.1	15627914	15637806	-	LOC120773677	LOC120773677	protein_coding	uncharacterized protein LOC120773677
+NC_052499.1	72125807	72138866	-	LOC120766931	LOC120766931	lncRNA	uncharacterized LOC120766931
+NC_052503.1	69445489	69778709	-	LOC120777228	LOC120777228	protein_coding	mucin-17 isoform X1
+NC_052503.1	16167634	16219469	-	LOC120777015	LOC120777015	protein_coding	protein draper isoform X1
+NC_052500.1	33680577	33686292	-	LOC120768360	LOC120768360	protein_coding	uncharacterized protein LOC120768360 isoform X4
+NC_052500.1	16337353	16373802	+	LOC120767764	LOC120767764	protein_coding	mitochondrial carrier protein Rim2 isoform X2
+NC_052501.1	84022940	84319832	+	LOC120771135	LOC120771135	protein_coding	zinc finger protein jing isoform X2
+NC_052501.1	85615112	85636192	+	LOC120770802	LOC120770802	protein_coding	pro-resilin
+NC_052499.1	36835465	36869973	-	LOC120766498	LOC120766498	protein_coding	uncharacterized protein LOC120766498
+NW_024396015.1	6317	8305	+	LOC120781111	LOC120781111	rRNA	small subunit ribosomal RNA
+NC_052502.1	30028159	30060897	+	LOC120775168	LOC120775168	protein_coding	galactose mutarotase-like
+NC_014611.1	1527	3061	+	COX1	COX1	protein_coding	cytochrome c oxidase subunit I
+NC_014611.1	3132	3821	+	COX2	COX2	protein_coding	cytochrome c oxidase subunit II
+NC_014611.1	4798	5586	+	COX3	COX3	protein_coding	cytochrome c oxidase subunit III
+NW_024395977.1	30070523	30355203	-	LOC120780499	LOC120780499	protein_coding	calcium/calmodulin-dependent protein kinase kinase 2
+NC_052499.1	24925029	24944503	+	LOC120770618	LOC120770618	protein_coding	E3 ubiquitin-protein ligase RNF13 isoform X1
+NC_052502.1	31184225	31217276	-	LOC120773370	LOC120773370	protein_coding	innexin inx1
+NC_052502.1	20190519	20291517	+	LOC120776055	LOC120776055	protein_coding	ras-related protein Rap-2a
+NW_024396382.1	18856	20845	-	LOC120781921	LOC120781921	rRNA	small subunit ribosomal RNA
+NC_052502.1	31142388	31142909	-	LOC120773377	LOC120773377	lncRNA	uncharacterized LOC120773377

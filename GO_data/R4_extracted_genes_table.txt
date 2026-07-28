@@ -1,0 +1,240 @@
+NC_052501.1	83826548	83970776	+	LOC120770426	LOC120770426	protein_coding	7SK snRNA methylphosphate capping enzyme bin3
+NC_052501.1	79927594	79976820	-	LOC120770192	LOC120770192	protein_coding	NAD kinase isoform X1
+NC_052503.1	22409722	22573092	+	LOC120778710	LOC120778710	lncRNA	uncharacterized LOC120778710
+NC_052503.1	13367565	13374397	-	LOC120776978	LOC120776978	protein_coding	LOW QUALITY PROTEIN: cytochrome P450 4d8-like
+NC_052502.1	23229873	23473306	+	LOC120776076	LOC120776076	protein_coding	netrin-B
+NC_052501.1	73666592	73745729	-	LOC120770902	LOC120770902	protein_coding	putative inorganic phosphate cotransporter isoform X3
+NW_024396386.1	5783	7769	-	LOC120781925	LOC120781925	rRNA	small subunit ribosomal RNA
+NC_052499.1	7845209	7846970	-	LOC120766598	LOC120766598	protein_coding	SPRY domain-containing protein 7
+NC_052499.1	2308739	2312851	-	LOC120781238	LOC120781238	protein_coding	esterase B1-like
+NC_052499.1	3255993	3263436	+	LOC120782310	LOC120782310	protein_coding	nose resistant to fluoxetine protein 6
+NC_052502.1	7791666	7865772	+	LOC120774917	LOC120774917	lncRNA	"uncharacterized LOC120774917, transcript variant X1"
+NC_052501.1	81948673	81960401	+	LOC120771484	LOC120771484	protein_coding	potassium voltage-gated channel subfamily KQT member 4-like
+NC_052500.1	48750030	49093578	+	LOC120767907	LOC120767907	protein_coding	disintegrin and metalloproteinase domain-containing protein 10 isoform X2
+NC_052499.1	4410469	4519225	-	LOC120772771	LOC120772771	protein_coding	neuronal PAS domain-containing protein 2
+NC_052499.1	2901675	2913276	-	LOC120776996	LOC120776996	protein_coding	serine protease 7
+NC_052499.1	2955010	2955770	+	LOC120782293	LOC120782293	protein_coding	trypsin-like
+NC_052499.1	3223063	3249558	+	LOC120769544	LOC120769544	protein_coding	LOW QUALITY PROTEIN: alpha-mannosidase 2
+NW_024396181.1	605	2593	-	LOC120781193	LOC120781193	rRNA	small subunit ribosomal RNA
+NC_052502.1	17781835	17851001	+	LOC120775283	LOC120775283	protein_coding	galactokinase-like
+NC_052500.1	77121932	77207351	+	LOC120769104	LOC120769104	protein_coding	uncharacterized protein LOC120769104
+NC_052499.1	61549085	61676011	+	LOC120780842	LOC120780842	protein_coding	DNA polymerase alpha subunit B
+NC_052499.1	5361031	5425286	+	LOC120766849	LOC120766849	protein_coding	putative transcription factor capicua isoform X1
+NC_052502.1	70259924	70475883	-	LOC120774933	LOC120774933	protein_coding	uncharacterized protein LOC120774933
+NC_052500.1	81943653	82117898	-	LOC120767909	LOC120767909	protein_coding	serine-rich adhesin for platelets isoform X5
+NC_052500.1	8902694	9191839	-	LOC120769547	LOC120769547	protein_coding	titin isoform X1
+NC_052499.1	81825726	81986501	+	LOC120769560	LOC120769560	protein_coding	uncharacterized protein LOC120769560 isoform X8
+NC_014611.1	10556	11690	+	CYTB	CYTB	protein_coding	cytochrome b
+NC_052499.1	2411800	2413834	+	LOC120781699	LOC120781699	protein_coding	esterase B1-like
+NW_024392867.1	1955	2073	+	LOC120779318	LOC120779318	rRNA	5S ribosomal RNA
+NC_052502.1	15472204	15499489	+	LOC120773663	LOC120773663	protein_coding	zinc finger SWIM domain-containing protein 8
+NC_052502.1	9184859	9188864	+	LOC120774936	LOC120774936	protein_coding	uncharacterized protein LOC120774936 isoform X2
+NC_052502.1	7865952	7954722	+	LOC120774475	LOC120774475	protein_coding	GAS2-like protein pickled eggs
+NC_052499.1	15845479	16253062	-	LOC120767250	LOC120767250	protein_coding	F-box/LRR-repeat protein 7-like
+NC_052503.1	20843192	20843677	+	LOC120777633	LOC120777633	protein_coding	uncharacterized protein LOC120777633
+NC_052502.1	8159998	8339182	-	LOC120773437	LOC120773437	protein_coding	tyrosine-protein phosphatase 10D-like isoform X3
+NC_052499.1	3270624	3337287	+	LOC120781520	LOC120781520	protein_coding	putative epidermal cell surface receptor isoform X2
+NC_052499.1	2441002	2458947	-	LOC120766880	LOC120766880	protein_coding	esterase B1 isoform X3
+NC_014611.1	4121	4798	+	ATP6	ATP6	protein_coding	ATP synthase F0 subunit 6
+NW_024396190.1	3886	6418	+	LOC120781199	LOC120781199	protein_coding	extracellular matrix-binding protein ebh-like
+NC_052502.1	36061183	36273910	+	LOC120773893	LOC120773893	lncRNA	"uncharacterized LOC120773893, transcript variant X2"
+NC_052502.1	10266688	10444780	+	LOC120776135	LOC120776135	protein_coding	anoctamin-1 isoform X6
+NC_052499.1	2424232	2433203	-	LOC120766882	LOC120766882	protein_coding	esterase B1 isoform X2
+NC_014611.1	3966	4127	+	ATP8	ATP8	protein_coding	ATP synthase F0 subunit 8
+NC_052499.1	2720013	2793828	+	LOC120782810	LOC120782810	protein_coding	uncharacterized protein LOC120782810
+NC_052500.1	62926289	62946627	-	LOC120768316	LOC120768316	protein_coding	pickpocket protein 11-like
+NC_052499.1	2490834	2497631	-	LOC120770270	LOC120770270	protein_coding	esterase B1-like isoform X2
+NC_052503.1	8336177	8352479	-	LOC120776368	LOC120776368	protein_coding	allatostatins MIP
+NC_052499.1	3770840	3941281	-	LOC120766888	LOC120766888	protein_coding	protein roadkill isoform X2
+NC_052500.1	1180203	1261939	+	LOC120768988	LOC120768988	protein_coding	protein spire isoform X1
+NC_052499.1	11558283	11560013	-	LOC120770735	LOC120770735	protein_coding	chromosomal protein D1-like
+NC_052499.1	5433312	5434870	-	LOC120766923	LOC120766923	protein_coding	uncharacterized protein LOC120766923
+NC_052499.1	479853	482166	-	LOC120782355	LOC120782355	protein_coding	uncharacterized protein LOC120782355 isoform X2
+NC_052499.1	2336761	2357511	-	LOC120779816	LOC120779816	protein_coding	uncharacterized protein LOC120779816
+NC_052503.1	68241183	68382859	+	LOC120777905	LOC120777905	protein_coding	protein TANC2
+NC_052499.1	82748804	83169724	-	LOC120766250	LOC120766250	protein_coding	polypyrimidine tract-binding protein 1 isoform X1
+NC_052500.1	65259438	65423310	-	LOC120767751	LOC120767751	protein_coding	uncharacterized protein LOC120767751
+NC_052499.1	9634060	9757086	-	LOC120766465	LOC120766465	protein_coding	trichoplein keratin filament-binding protein
+NC_052503.1	34457910	34589949	+	LOC120777199	LOC120777199	protein_coding	uncharacterized protein LOC120777199
+NC_052500.1	6982447	7076066	-	LOC120767293	LOC120767293	protein_coding	serine-rich adhesin for platelets-like isoform X1
+NC_052499.1	1549561	1674431	-	LOC120773051	LOC120773051	protein_coding	uncharacterized protein LOC120773051 isoform X2
+NC_052502.1	23183068	23793324	+	LOC120773727	LOC120773727	protein_coding	netrin-A-like
+NC_052501.1	86976210	86999204	+	LOC120771580	LOC120771580	protein_coding	protein stum isoform X1
+NC_052501.1	5749749	5815163	-	LOC120770100	LOC120770100	protein_coding	potassium voltage-gated channel subfamily KQT member 4 isoform X4
+NW_024395835.1	877729	991678	+	LOC120780022	LOC120780022	protein_coding	uncharacterized protein LOC120780022 isoform X1
+NC_052501.1	73796518	73907226	-	LOC120770542	LOC120770542	protein_coding	putative polypeptide N-acetylgalactosaminyltransferase 9 isoform X1
+NC_052501.1	1706626	1856900	-	LOC120770081	LOC120770081	protein_coding	netrin receptor DCC isoform X2
+NC_052499.1	2509477	2512915	-	LOC120770315	LOC120770315	protein_coding	esterase B1-like
+NC_052502.1	12426610	12430249	-	LOC120775139	LOC120775139	protein_coding	N-acetylgalactosaminyltransferase 7
+NC_052503.1	50576547	50603707	-	LOC120777927	LOC120777927	protein_coding	ceramide transfer protein
+NC_052501.1	59714621	59806211	+	LOC120770318	LOC120770318	protein_coding	nephrin isoform X3
+NC_014611.1	9600	9896	-	ND4L	ND4L	protein_coding	NADH dehydrogenase subunit 4L
+NC_052502.1	11667511	11847420	-	LOC120774096	LOC120774096	protein_coding	double-stranded RNA-specific editase Adar isoform X1
+NC_052501.1	59714743	59752722	-	LOC120770319	LOC120770319	lncRNA	uncharacterized LOC120770319
+NC_052499.1	88893957	88934792	-	LOC120782641	LOC120782641	protein_coding	uncharacterized protein LOC120782641
+NC_052503.1	10529422	10627434	-	LOC120777716	LOC120777716	protein_coding	uncharacterized protein LOC120777716 isoform X6
+NC_052502.1	20679676	20682776	+	LOC120775384	LOC120775384	lncRNA	uncharacterized LOC120775384
+NC_052502.1	12645768	12647698	+	LOC120776197	LOC120776197	protein_coding	uncharacterized protein LOC120776197
+NC_052499.1	16400526	16419644	-	LOC120768588	LOC120768588	protein_coding	LOW QUALITY PROTEIN: poly [ADP-ribose] polymerase tankyrase
+NC_052500.1	6430395	6460271	-	LOC120769187	LOC120769187	protein_coding	protein bowel
+NC_052499.1	2876091	2877293	-	LOC120766310	LOC120766310	protein_coding	uncharacterized protein LOC120766310
+NC_052499.1	4161436	4200473	-	LOC120780731	LOC120780731	protein_coding	protein neuralized isoform X1
+NC_052501.1	75740018	75741305	-	LOC120770778	LOC120770778	pseudogene	NA
+NC_052503.1	37999872	38054528	-	LOC120778834	LOC120778834	protein_coding	cAMP-dependent protein kinase type I regulatory subunit isoform X3
+NW_024396366.1	11053098	11058629	-	LOC120781621	LOC120781621	protein_coding	putative nuclease HARBI1
+NC_052501.1	68677343	68688678	+	LOC120772891	LOC120772891	protein_coding	uncharacterized protein LOC120772891
+NC_052499.1	88239211	88240949	-	LOC120782660	LOC120782660	protein_coding	general odorant-binding protein 83a-like
+NC_052499.1	3146697	3205828	-	LOC120766982	LOC120766982	protein_coding	uncharacterized protein LOC120766982 isoform X4
+NC_052503.1	74957460	74958687	+	LOC120776677	LOC120776677	lncRNA	uncharacterized LOC120776677
+NC_052502.1	14490754	14680201	+	LOC120774365	LOC120774365	protein_coding	AF4/FMR2 family member lilli isoform X4
+NC_052501.1	13095011	13096665	-	LOC120773094	LOC120773094	protein_coding	alaserpin-like
+NC_052499.1	10125534	10523734	-	LOC120781839	LOC120781839	protein_coding	low-density lipoprotein receptor isoform X3
+NC_052499.1	8178671	8255167	+	LOC120782665	LOC120782665	protein_coding	uncharacterized protein LOC120782665 isoform X1
+NC_052501.1	80979658	80988906	-	LOC120770358	LOC120770358	protein_coding	coiled-coil and C2 domain-containing protein 2A
+NC_052500.1	63102631	63103779	+	LOC120768397	LOC120768397	protein_coding	alpha-ketoglutarate-dependent dioxygenase alkB homolog 4
+NC_052500.1	29722002	29724503	-	LOC120769242	LOC120769242	protein_coding	sterol carrier protein 2
+NC_052502.1	19215563	19505094	+	LOC120775003	LOC120775003	protein_coding	protein scalloped isoform X6
+NC_052499.1	1775854	2025761	-	LOC120775658	LOC120775658	protein_coding	poly(U)-binding-splicing factor half pint isoform X2
+NC_052499.1	70835409	70837975	+	LOC120782703	LOC120782703	protein_coding	protein fork head-like
+NC_052499.1	41820959	41992289	+	LOC120782456	LOC120782456	protein_coding	uncharacterized protein LOC120782456
+NC_052501.1	23490270	23532031	+	LOC120771649	LOC120771649	protein_coding	uncharacterized protein LOC120771649 isoform X2
+NC_052501.1	9093656	9125558	+	LOC120770851	LOC120770851	protein_coding	protein spinster isoform X1
+NC_052499.1	25401355	25428758	+	LOC120766812	LOC120766812	protein_coding	uncharacterized protein LOC120766812
+NC_052499.1	1544421	1547913	+	LOC120782685	LOC120782685	protein_coding	kelch-like protein 2
+NC_052499.1	1745352	1787048	+	LOC120775674	LOC120775674	protein_coding	uncharacterized protein LOC120775674 isoform X1
+NC_052501.1	77692744	77696265	+	LOC120770378	LOC120770378	protein_coding	lamin-B receptor
+NC_052499.1	75570372	75641059	-	LOC120777560	LOC120777560	protein_coding	cadherin-99C
+NC_014611.1	11773	12712	-	ND1	ND1	protein_coding	NADH dehydrogenase subunit 1
+NC_014611.1	273	1295	+	ND2	ND2	protein_coding	NADH dehydrogenase subunit 2
+NC_052500.1	68755993	68890474	+	LOC120768013	LOC120768013	protein_coding	cytohesin-1 isoform X1
+NC_052500.1	9534522	9535449	-	LOC120769039	LOC120769039	protein_coding	uncharacterized protein LOC120769039
+NC_052499.1	86781040	86808673	+	LOC120766603	LOC120766603	protein_coding	serine/threonine-protein kinase D3
+NC_052499.1	81776549	81815570	+	LOC120782262	LOC120782262	protein_coding	homeotic protein labial-like
+NC_014611.1	5661	6012	+	ND3	ND3	protein_coding	NADH dehydrogenase subunit 3
+NC_052502.1	8984008	8985039	-	LOC120775940	LOC120775940	protein_coding	protein CWC15 homolog
+NC_052502.1	4582211	4721981	-	LOC120775466	LOC120775466	protein_coding	adenylate cyclase type 9 isoform X2
+NC_014611.1	8266	9606	-	ND4	ND4	protein_coding	NADH dehydrogenase subunit 4
+NW_024396116.1	6068	8030	+	LOC120781163	LOC120781163	rRNA	small subunit ribosomal RNA
+NC_014611.1	6465	8184	-	ND5	ND5	protein_coding	NADH dehydrogenase subunit 5
+NC_052502.1	75065188	75142600	+	LOC120774195	LOC120774195	protein_coding	calcitonin gene-related peptide type 1 receptor
+NC_052499.1	11068403	11505288	-	LOC120771243	LOC120771243	protein_coding	maternal protein pumilio
+NC_014611.1	10032	10556	+	ND6	ND6	protein_coding	NADH dehydrogenase subunit 6
+NC_052503.1	39232490	39405174	-	LOC120778701	LOC120778701	protein_coding	uncharacterized protein LOC120778701 isoform X1
+NC_052501.1	81151211	81387440	+	LOC120771685	LOC120771685	protein_coding	spondin-1
+NC_052500.1	63097061	63098687	+	LOC120768471	LOC120768471	protein_coding	"UDP-GlcNAc:betaGal beta-1,3-N-acetylglucosaminyltransferase-like protein 1"
+NC_052503.1	27410542	27452239	-	LOC120777582	LOC120777582	protein_coding	gonadotropin-releasing hormone receptor
+NC_052502.1	3668453	3746086	-	LOC120774198	LOC120774198	protein_coding	dorsal-ventral patterning protein Sog
+NW_024396406.1	69756	70052	-	LOC120781931	LOC120781931	lncRNA	uncharacterized LOC120781931
+NC_052500.1	45260277	45287590	-	LOC120769306	LOC120769306	protein_coding	neurogenic protein big brain
+NC_052499.1	82452180	82465862	-	LOC120776083	LOC120776083	protein_coding	alkaline phosphatase 4
+NC_052502.1	74417456	74458176	-	LOC120774921	LOC120774921	protein_coding	uncharacterized protein LOC120774921
+NC_052502.1	16091079	16107056	+	LOC120774922	LOC120774922	lncRNA	uncharacterized LOC120774922
+NC_052501.1	12145072	12295890	+	LOC120772288	LOC120772288	protein_coding	uncharacterized protein LOC120772288
+NC_052499.1	18688946	18699903	-	LOC120782304	LOC120782304	protein_coding	pickpocket protein 19
+NC_052503.1	21193917	21210179	-	LOC120778246	LOC120778246	protein_coding	DNA N6-methyl adenine demethylase isoform X1
+NC_052501.1	9220721	9224768	+	LOC120772076	LOC120772076	protein_coding	23 kDa integral membrane protein-like
+NC_052500.1	60958122	61068345	-	LOC120768037	LOC120768037	protein_coding	sodium/potassium-transporting ATPase subunit beta-2 isoform X2
+NC_052499.1	17325862	17485336	+	LOC120766854	LOC120766854	protein_coding	LOW QUALITY PROTEIN: uncharacterized protein LOC120766854
+NC_052502.1	68415583	68601843	+	LOC120776088	LOC120776088	protein_coding	LOW QUALITY PROTEIN: microtubule-associated protein futsch
+NC_052502.1	54440844	54585360	-	LOC120775310	LOC120775310	protein_coding	tRNA dimethylallyltransferase
+NC_052502.1	17541009	17772594	+	LOC120774251	LOC120774251	protein_coding	protein obstructor-E-like isoform X2
+NC_052499.1	3252918	3266423	-	LOC120782308	LOC120782308	protein_coding	DNA replication licensing factor REC isoform X2
+NC_052502.1	12218603	12347534	-	LOC120775279	LOC120775279	protein_coding	uncharacterized protein LOC120775279
+NC_052501.1	82273294	82273365	+	Trnae-uuc_6	Trnae-uuc	tRNA	tRNA-Glu
+NC_052499.1	5197100	5338186	+	LOC120773428	LOC120773428	protein_coding	neuroligin 4-like
+NC_052499.1	3728675	3739301	+	LOC120770229	LOC120770229	protein_coding	uncharacterized protein LOC120770229
+NC_052502.1	69843474	69866299	+	LOC120773656	LOC120773656	protein_coding	multivesicular body subunit 12A
+NC_052501.1	77854318	77963884	-	LOC120770931	LOC120770931	protein_coding	protein king tubby
+NC_052501.1	32117590	32129387	-	LOC120772802	LOC120772802	protein_coding	lysosome membrane protein 2
+NC_052503.1	34874995	35338013	+	LOC120779091	LOC120779091	protein_coding	RNA-binding protein Musashi homolog Rbp6 isoform X4
+NC_052502.1	71621696	71629060	+	LOC120774028	LOC120774028	protein_coding	poly(U)-binding-splicing factor half pint isoform X2
+NC_052502.1	67451438	67543587	-	LOC120775294	LOC120775294	protein_coding	nuclear pore complex protein Nup88
+NC_052501.1	79412231	79427418	-	LOC120772343	LOC120772343	protein_coding	sialin
+NC_052499.1	70347812	70395783	-	LOC120782326	LOC120782326	protein_coding	oxysterol-binding protein-related protein 8 isoform X4
+NC_052503.1	79839925	79952624	-	LOC120777414	LOC120777414	lncRNA	uncharacterized LOC120777414
+NC_052502.1	4985296	5034169	+	LOC120775330	LOC120775330	protein_coding	putative uncharacterized protein DDB_G0282129
+NC_052503.1	10734795	10753502	+	LOC120776818	LOC120776818	protein_coding	hippocampus abundant transcript 1 protein isoform X1
+NC_052502.1	12173664	12190224	-	LOC120775759	LOC120775759	protein_coding	"adenylate cyclase, terminal-differentiation specific"
+NC_052501.1	82602308	82603477	-	LOC120772119	LOC120772119	protein_coding	uncharacterized protein LOC120772119
+NC_052499.1	19070865	19072238	-	LOC120766209	LOC120766209	protein_coding	RNA polymerase II elongation factor Ell-like
+NW_024395977.1	6485429	6633085	-	LOC120780417	LOC120780417	protein_coding	uncharacterized protein LOC120780417
+NC_052499.1	2467302	2477724	-	LOC120774273	LOC120774273	protein_coding	esterase B1
+NC_052502.1	15145200	15152708	-	LOC120773463	LOC120773463	protein_coding	aminoacylase-1-like
+NC_052499.1	22908088	22966635	-	LOC120767050	LOC120767050	protein_coding	histone-lysine N-methyltransferase trithorax
+NC_052503.1	37784582	37965633	+	LOC120777186	LOC120777186	protein_coding	uncharacterized protein LOC120777186 isoform X4
+NC_052500.1	63224578	63318785	+	LOC120769137	LOC120769137	protein_coding	nuclear hormone receptor FTZ-F1 beta
+NC_052499.1	81065823	81218290	-	LOC120778535	LOC120778535	protein_coding	cation-independent mannose-6-phosphate receptor isoform X2
+NC_052499.1	2324804	2328923	+	LOC120779809	LOC120779809	protein_coding	salivary glue protein Sgs-3
+NC_052500.1	8006301	8076760	-	LOC120768995	LOC120768995	protein_coding	dedicator of cytokinesis protein 9 isoform X3
+NC_052499.1	2874156	2875852	-	LOC120766703	LOC120766703	protein_coding	uncharacterized protein LOC120766703
+NC_052499.1	72125807	72138866	-	LOC120766931	LOC120766931	lncRNA	uncharacterized LOC120766931
+NC_052499.1	55613296	55715998	+	LOC120766898	LOC120766898	protein_coding	uncharacterized protein LOC120766898
+NC_052499.1	3347342	3441435	-	LOC120780223	LOC120780223	protein_coding	uncharacterized protein LOC120780223
+NC_052499.1	7861897	8006737	-	LOC120782591	LOC120782591	protein_coding	LOW QUALITY PROTEIN: probable serine/threonine-protein kinase DDB_G0267686
+NC_052503.1	10707482	10712343	+	LOC120777893	LOC120777893	protein_coding	T-box protein 2-like
+NC_052500.1	62643255	62646304	+	LOC120769403	LOC120769403	protein_coding	uncharacterized protein LOC120769403
+NC_052499.1	6773983	6782101	+	LOC120781052	LOC120781052	protein_coding	meckelin isoform X2
+NC_052499.1	1177281	1441635	-	LOC120770974	LOC120770974	protein_coding	furin-like protease 1
+NC_052502.1	44693878	44824850	+	LOC120773947	LOC120773947	protein_coding	uncharacterized protein LOC120773947 isoform X2
+NC_052502.1	12754612	12804803	+	LOC120774084	LOC120774084	protein_coding	protein Tob1 isoform X1
+NC_052499.1	57120300	57214821	-	LOC120782615	LOC120782615	protein_coding	ETS-like protein pointed isoform X1
+NC_052502.1	4909425	4926037	-	LOC120774085	LOC120774085	protein_coding	peptide transporter family 1-like
+NC_052501.1	78849034	78866738	+	LOC120772861	LOC120772861	protein_coding	serine/threonine-protein kinase 10 isoform X1
+NC_052499.1	3469189	3517304	+	LOC120766490	LOC120766490	protein_coding	uncharacterized protein LOC120766490
+NC_052499.1	3004851	3007798	-	LOC120779597	LOC120779597	protein_coding	arrestin domain-containing protein 17-like
+NC_052502.1	17003904	17136907	+	LOC120776185	LOC120776185	protein_coding	uncharacterized protein LOC120776185 isoform X2
+NC_052501.1	84022940	84319832	+	LOC120771135	LOC120771135	protein_coding	zinc finger protein jing isoform X2
+NC_052503.1	7589444	7810183	+	LOC120778132	LOC120778132	protein_coding	phosphatase and actin regulator 2 isoform X1
+NC_052499.1	66969485	66971169	-	LOC120782632	LOC120782632	protein_coding	trichoplein keratin filament-binding protein
+NC_052501.1	25790170	25793137	+	LOC120771579	LOC120771579	protein_coding	serine/threonine-protein kinase STY13
+NC_052499.1	13334838	13351515	+	LOC120777935	LOC120777935	protein_coding	G protein-activated inward rectifier potassium channel 3 isoform X2
+NC_052500.1	33387029	33637183	+	LOC120768152	LOC120768152	protein_coding	zinc finger protein ush
+NC_052499.1	10013049	10054527	-	LOC120766301	LOC120766301	protein_coding	putative uncharacterized protein DDB_G0282133 isoform X2
+NC_052499.1	8588417	8722901	-	LOC120782635	LOC120782635	protein_coding	insulin-like receptor
+NC_052499.1	2278576	2282430	-	LOC120766495	LOC120766495	protein_coding	glutamate receptor 1
+NC_052499.1	2498680	2509043	-	LOC120782408	LOC120782408	protein_coding	LOW QUALITY PROTEIN: uncharacterized protein LOC120782408
+NC_052502.1	3829126	3844846	+	LOC120774813	LOC120774813	protein_coding	nose resistant to fluoxetine protein 6-like
+NC_052499.1	8722956	8723571	-	LOC120782636	LOC120782636	lncRNA	uncharacterized LOC120782636
+NC_052503.1	56292984	56294126	-	LOC120778150	LOC120778150	protein_coding	homeobox protein Hox-D4a
+NC_052499.1	16397987	16413278	+	LOC120768596	LOC120768596	lncRNA	uncharacterized LOC120768596
+NC_052501.1	27761867	28071520	+	LOC120773102	LOC120773102	protein_coding	terminal nucleotidyltransferase 5C isoform X4
+NC_052500.1	75900018	75903150	-	LOC120767999	LOC120767999	protein_coding	RNA polymerase I-specific transcription initiation factor RRN3
+NC_052499.1	3062412	3133291	+	LOC120782866	LOC120782866	protein_coding	diacylglycerol kinase eta isoform X2
+NW_024396015.1	6317	8305	+	LOC120781111	LOC120781111	rRNA	small subunit ribosomal RNA
+NC_052502.1	64850372	65054486	+	LOC120773544	LOC120773544	protein_coding	rho GTPase-activating protein 26 isoform X3
+NC_052501.1	77700135	77742765	+	LOC120770786	LOC120770786	protein_coding	uncharacterized protein LOC120770786
+NC_052499.1	855912	859748	-	LOC120782880	LOC120782880	protein_coding	organic cation transporter protein-like
+NC_052502.1	18040809	18432877	+	LOC120773986	LOC120773986	protein_coding	furin-like protease 2
+NC_052499.1	6240451	6259564	-	LOC120766761	LOC120766761	protein_coding	arrestin domain-containing protein 17 isoform X2
+NC_052500.1	51129437	51129508	+	Trnap-agg_4	Trnap-agg	tRNA	tRNA-Pro
+NC_052499.1	2552671	2677638	-	LOC120777742	LOC120777742	protein_coding	"neuroligin-4, Y-linked"
+NC_014611.1	1527	3061	+	COX1	COX1	protein_coding	cytochrome c oxidase subunit I
+NC_052503.1	51369116	51477778	+	LOC120778618	LOC120778618	protein_coding	transcription factor AP-2-epsilon isoform X5
+NC_014611.1	3132	3821	+	COX2	COX2	protein_coding	cytochrome c oxidase subunit II
+NC_052501.1	18384689	18565362	-	LOC120773108	LOC120773108	protein_coding	sodium/potassium-transporting ATPase subunit beta-1-interacting protein isoform X1
+NC_052500.1	62454722	62581365	-	LOC120769007	LOC120769007	protein_coding	sodium/potassium/calcium exchanger Nckx30C
+NC_014611.1	4798	5586	+	COX3	COX3	protein_coding	cytochrome c oxidase subunit III
+NC_052501.1	75731000	75758130	-	LOC120772463	LOC120772463	protein_coding	cytochrome P450 6g1-like
+NC_052502.1	11962906	12062082	-	LOC120773792	LOC120773792	protein_coding	cytosolic purine 5'-nucleotidase isoform X1
+NC_052499.1	8297627	8400411	-	LOC120777287	LOC120777287	protein_coding	heparan-sulfate 6-O-sulfotransferase 1 isoform X1
+NC_052499.1	8500742	8509468	+	LOC120782889	LOC120782889	protein_coding	uncharacterized protein LOC120782889
+NC_052502.1	12830405	12879508	+	LOC120775912	LOC120775912	protein_coding	pre-mRNA-splicing factor ATP-dependent RNA helicase PRP16 isoform X2
+NC_052503.1	81766182	81810370	-	LOC120778193	LOC120778193	protein_coding	"ecdysone-induced protein 75B, isoforms C/D isoform X6"
+NC_052502.1	75498335	75517767	+	LOC120773584	LOC120773584	protein_coding	anaphase-promoting complex subunit 7
+NC_052501.1	81811817	81928726	-	LOC120772483	LOC120772483	protein_coding	uncharacterized protein LOC120772483 isoform X2
+NC_052500.1	83021607	83127640	+	LOC120768658	LOC120768658	protein_coding	thrombospondin type-1 domain-containing protein 4 isoform X2
+NC_052499.1	4369217	4385077	-	LOC120782466	LOC120782466	protein_coding	solute carrier family 22 member 13
+NC_052503.1	63591921	63649639	+	LOC120777995	LOC120777995	protein_coding	uncharacterized protein LOC120777995
+NC_052502.1	75502679	75515094	-	LOC120773586	LOC120773586	protein_coding	putative uncharacterized protein DDB_G0290521 isoform X2
+NC_052499.1	25203033	25979778	-	LOC120766809	LOC120766809	protein_coding	dystrophin isoform X5
+NC_052503.1	17495079	17513813	+	LOC120778658	LOC120778658	protein_coding	uncharacterized protein LOC120778658
+NC_052501.1	73077223	73083850	-	LOC120772273	LOC120772273	protein_coding	centrosomal protein of 131 kDa
+NC_052499.1	67104614	67348191	-	LOC120782483	LOC120782483	protein_coding	autophagy-related protein 16-1 isoform X2
+NC_052499.1	1027042	1033601	-	LOC120768234	LOC120768234	protein_coding	ataxin-2 homolog
+NC_052503.1	65749939	65786262	+	LOC120778659	LOC120778659	protein_coding	uncharacterized protein LOC120778659
+NC_052500.1	80142875	80200437	-	LOC120769521	LOC120769521	protein_coding	homeotic protein female sterile
+NW_024396382.1	5936	7927	-	LOC120781920	LOC120781920	rRNA	small subunit ribosomal RNA
+NC_052501.1	78061731	78226421	-	LOC120770424	LOC120770424	protein_coding	serine-rich adhesin for platelets isoform X2
+NW_024396382.1	18856	20845	-	LOC120781921	LOC120781921	rRNA	small subunit ribosomal RNA
+NW_024395869.1	45255	81538	-	LOC120780099	LOC120780099	protein_coding	growth factor receptor-bound protein 2
+NC_052499.1	4222933	4250077	+	LOC120780807	LOC120780807	protein_coding	Kv channel-interacting protein 1
