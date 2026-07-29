@@ -352,6 +352,7 @@ All_sigSNPs <- rbind(read.table("Geneoverlap/R4_FDR0.05.tsv", header = TRUE) %>%
 write.csv(All_sigSNPs, "Results/Supplementary_dataset_All_sigSNPs.csv", row.names = FALSE)
 
 
+
 #_____________________________________________________________________________
 
 ###  This is for all SNPs that are close to genes (within 5000 bp)
