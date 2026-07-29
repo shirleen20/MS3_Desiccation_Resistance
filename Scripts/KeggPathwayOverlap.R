@@ -22,13 +22,13 @@ rm(list = ls())
 
 # Create data files for ORA_Run with no MT:
 
-R4 <- read.delim("Geneoverlap/Test_proteins_R4_noMT.txt",header = FALSE) %>% 
+R4 <- read.delim("Geneoverlap/Test_proteins_snpEffR4_identified_no-intergenic.txt",header = FALSE) %>% 
   dplyr::rename(Protein_ID=V1, GeneID=V2, Gene=V3)
 
-R5 <- read.delim("Geneoverlap/Test_proteins_R5_noMT.txt",header = FALSE) %>% 
+R5 <- read.delim("Geneoverlap/Test_proteins_snpEffR5_identified_no-intergenic.txt",header = FALSE) %>% 
   dplyr::rename(Protein_ID=V1, GeneID=V2, Gene=V3)
 
-R6 <- read.delim("Geneoverlap/Test_proteins_R6_noMT.txt",header = FALSE) %>% 
+R6 <- read.delim("Geneoverlap/Test_proteins_snpEffR6_identified_no-intergenic.txt",header = FALSE) %>% 
   dplyr::rename(Protein_ID=V1, GeneID=V2, Gene=V3)
 
 
