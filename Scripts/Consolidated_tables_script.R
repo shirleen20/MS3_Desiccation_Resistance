@@ -349,7 +349,7 @@ All_sigSNPs <- rbind(read.table("Geneoverlap/R4_FDR0.05.tsv", header = TRUE) %>%
                                          if_else(R5_FDR < 0.05 & R6_FDR < 0.05, R5vsR6, "None"))))
 
 # save this table to be used as supplementary dataset 1
-write.csv(All_sigSNPs, "Results/Supplementary_dataset_All_sigSNPs.csv", row.names = FALSE)
+write.csv(All_sigSNPs, "Results/Supplementary_dataset_1_All_sigSNPs.csv", row.names = FALSE)
 
 
 
@@ -433,6 +433,22 @@ CommonGenesTable_OverlapSNPsOnly <- OverlapSNP_complex %>%
   group_by(CHR, POS, Gene) %>% ### To collapse the SNP with multiple effect for one gene
   mutate(Effect_combined = paste(unique(Effect), collapse = ", ")) %>% 
   dplyr::select(-R4,-R5,-R6,-OverlapSNPs) %>% ungroup() 
+
+
+##############################
+###############################
+# Filter all the sig SNPs from CommonGenesTable_OverlapSNPsOnly and make a supplementary file 2 for MS3
+
+SuppFile <- CommonGenesTable_OverlapSNPsOnly %>% 
+  dplyr::select(CHR,POS,Gene,Effect,REF,R4_diff,R5_diff,R6_diff,OverlapRound) %>%
+  dplyr::rename("SignificantRound" = OverlapRound) %>% 
+  separate(REF, into = c("REF","Major","Minor"), sep =",") %>%
+  mutate(SignificantRound = factor(SignificantRound,levels = c("R4","R5","R6","R4, R5","R4, R6","R5, R6","R4, R5, R6"))) %>% 
+  arrange(SignificantRound) %>%
+  #write.csv("Results/Supplementary_dataset_2.csv", row.names = FALSE)
+
+###############################
+##############################
 
 
 ### Summary of significant SNPs in the 27 genes
