@@ -47,7 +47,7 @@ DF_summary <- DF01 %>%
 DF_QTLF4 <- DF %>% dplyr::filter(Line =="QTL1F4") 
 
 
-Red <- c("16", "47")
+Red <- c("16", "20", "47")
 Gray100 <- c("8", "20", "23","26","29","32","35","38","41","44","50","53","56","59","62")
 
 DF_QTLF4_df <- DF_QTLF4 %>% 
@@ -78,7 +78,7 @@ DF_QTLF5 <- DF %>% dplyr::filter (Line =="QTL1F5")
 
 # add another column to DF_QTLF4 that has the following colour categories
 
-Red <- c("16","47","48.5")
+Red <- c("16","20","48.5")
 Gray100 <- c("8","20","23","26","29","32","35","38","41","44")
 
 DF_QTLF5_df <- DF_QTLF5 %>% 
@@ -110,7 +110,7 @@ DF_QTLF6 <- DF %>% dplyr::filter (Line =="QTL1F6")
 
 # add another column to DF_QTLF4 that has the following colour categories
 
-Red <- c("16","47.5")
+Red <- c("16","20","47.5")
 Gray100 <- c("8","20","23","26","29","32","35","38","41","44","47")
 
 DF_QTLF6_df <- DF_QTLF6 %>% 
