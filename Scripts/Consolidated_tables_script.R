@@ -214,26 +214,6 @@ scaffold_pages <- split(scaffold_levels,ceiling(seq_along(scaffold_levels) / sca
 
 
 # plot each page
-for(i in seq_along(scaffold_pages)) {
-  plot_data <- SNPRawCountHeat_supp %>%
-    filter(NewChr %in% scaffold_pages[[i]]) %>%
-    mutate(NewChr = factor(NewChr,levels = rev(scaffold_pages[[i]])))
-  
-p <- ggplot(plot_data,aes(x = Round,y = NewChr,fill = logDensity,label = Count)) +
-    geom_tile() + geom_text(size = 2, face = "bold") +
-    scale_fill_gradient(low = "white",high = "red") +
-    theme_minimal() +
-    theme(axis.title = element_blank(),legend.position = "none",axis.text = element_text(size = 6))}
-  
-# keep tile size consistent between pages
-n_scaffolds <- length(unique(plot_data$NewChr))
-plot_height <- n_scaffolds * 0.18 + 1
-  
-  
-ggsave(filename = paste0("Figures/SNP_heatmap_all_scaffolds_", i, ".jpg"),
-       plot = p,width = 6,height = plot_height,units = "in",dpi = 300)}
-
-
 
 for(i in seq_along(scaffold_pages)) {
   
