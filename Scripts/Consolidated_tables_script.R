@@ -225,7 +225,7 @@ p <- ggplot(plot_data,aes(x = Round,y = NewChr,fill = logDensity,label = Count))
     geom_tile() + geom_text(size = 2, face = "bold") +
     scale_fill_gradient(low = "white",high = "red") +
     theme_minimal() +
-    theme(axis.title = element_blank(),legend.position = "none", axis.text = element_text(size = 6))
+    theme(axis.title = element_blank(),legend.position = "none", axis.text = element_text(size = 6, face = "bold"))
   
 # Keep tile size consistent between pages
 n_scaffolds <- length(unique(plot_data$NewChr))
