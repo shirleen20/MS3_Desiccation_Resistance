@@ -10,7 +10,7 @@ rm(list=ls())
 
 #___________________Import data___________________________________
 
-DF <- read_csv("Data/Combined_data_raw.csv") 
+DF <- read_csv("Data/Dataset 1.csv") 
 
 # Notes:
 # In DF, hours refers to the median knock down time and Mean refers to the mean knockdown time for DR
@@ -32,13 +32,13 @@ DF_S06 <- DF %>%
 
 # Use the filtered S06 data to find global mean and experimental mean: 
 # note in Df_S06 below column "mean" refers to global mean of S06 and 
-# "emean" refers to experimental mean forS06
+# "emean" refers to experimental mean for S06
 
 Df_S06 <- DF_S06 %>% 
   dplyr::mutate(mean= round(mean(Hours, na.rm = TRUE),2)) %>% #calculate global mean knockdown time 
   dplyr::group_by(Bioassay) %>%  #groups the observations (Hours) by the Bioassay (NB: "Bioassay" is not the same as "Generation") 
   dplyr::mutate(emean = round(mean(Hours, na.rm = TRUE),2)) %>% #calculate experimental mean for S06
-  dplyr::ungroup() %>%  # Ungroup the dataframe, because we want to carry the two calculated values (emean and mean)
+  dplyr::ungroup() %>%  
   dplyr::group_by(Bioassay, emean, mean) %>% 
   dplyr::summarise()
 
@@ -56,13 +56,13 @@ DF_main <- DF %>%
 Correctedcompletedataset <- DF_main %>% 
   dplyr::mutate(Line = recode(Line,  CanberraNew = "CNnew",CanberraOld  = "CNold", CapeTribulationNew = "CTnew",
                               SydneyNew = "SDnew",SydneyOld  = "SDold", S06 = "SDolder")) %>% 
-  dplyr::mutate(Locality = recode(Locality,  S06 = "Sydney")) #%>% 
-  #write.csv("Processed_data/Correctedcompletedataset.csv")    # Save dataframe to be used for analysis:
+  dplyr::mutate(Locality = recode(Locality,  S06 = "Sydney")) %>% 
+  write.csv("Processed_data/Batch_corrected_dataset.csv")    # Save dataframe to be used for analysis:
 
 
 # Save corrected data
 
-Corrected_data <- read_csv("Processed_data/Correctedcompletedataset.csv")
+Corrected_data <- read_csv("Processed_data/Batch_corrected_dataset.csv")
 
 
 #_______________________________END______________________________

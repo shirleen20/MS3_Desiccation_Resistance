@@ -16,7 +16,7 @@ rm(list=ls())
 
 #__________________________Import data corrected for batch effects____________________________
 
-DF <- read_csv("Processed_data/Correctedcompletedataset.csv")
+DF <- read_csv("Processed_data/Batch_corrected_dataset.csv")
 
 # Here we want to show all mass breds except S06 using corrected values but S06 using uncorrected values
 # 1st create dataframe with corrected values for all mass breds except S06:
@@ -290,7 +290,7 @@ rm(list=ls())
 
 #__________________________Import data corrected for batch effects____________________________
 
-DF <- read_csv("Processed_data/Correctedcompletedataset.csv")
+DF <- read_csv("Processed_data/Batch_corrected_dataset.csv")
 
 # Here we want to show all mass breds using uncorrected values
 

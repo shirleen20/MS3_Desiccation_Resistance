@@ -18,7 +18,7 @@ rm(list=ls())
 #_____________________________Import data __________________________________________
 
 
-DF <- read_csv("Processed_data/Correctedcompletedataset.csv") 
+DF <- read_csv("Processed_data/Batch_corrected_dataset.csv") 
 
 
 #_____________Prepare data frames for mass bred lines for linear modelling__________________
