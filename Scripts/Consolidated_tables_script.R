@@ -288,29 +288,42 @@ GeneCount <- Table1_GeneCount %>%
   relocate(order_idx,`Fs4+5+6`, `Fs4+5`, `Fs4+6`, `Fs5+6`, .after = Size)
 
 ######## To fix the NewChr
+
 GeneCountHeat <- GeneCount %>% 
   pivot_longer(cols = `Fs4+5+6`:F6, names_to = "Round", values_to = "Count") %>% 
   mutate(logDensity =  if_else(Count > 0, log10(Count/Size), -8)) %>%  # chose  -8 to improve contrast
   mutate(Count = if_else(Count == 0, "", as.character(Count))) %>% 
   mutate(Round = factor(Round, levels = c("Fs4+5+6", "Fs4+5", "Fs4+6", "Fs5+6", "F4", "F5", "F6"))) %>% ungroup() %>% 
   arrange(desc(order_idx)) %>% 
-  mutate(NewChr = if_else(grepl("NW", CHR), paste0("sc",sprintf("%05.0f", Size/100), " ", gsub(" ", " ", sprintf("%7.3f", Size/1000000))) , 
-                          if_else(CHR == "MT", paste0("MT ", gsub(" ", " ", sprintf("%7.3f", Size/1000000))),
-                                  paste0(CHR, " ", gsub(" ", " ", paste0(sprintf("%7.3f", Size/1000000))) )))) %>% 
-  mutate(NewChr = factor(NewChr, levels = unique(NewChr)))
+  mutate(BtName = Bt_chr(CHR),NewChr = if_else(CHR %in% c("NC_014611.1","NC_052499.1","NC_052500.1",  # create scaffold labels
+                                                          "NC_052501.1","NC_052502.1","NC_052503.1","NW_024395824.1","NW_024396366.1","NW_024395977.1"),
+                                               paste0(BtName, " ", sprintf("%.3f", Size/1000000)),
+                                               paste0(CHR, " ", sprintf("%.3f", Size/1000000))))
 
-####### To rearrange the rows and columns
-# Adjust axis text size, and tile label size
-Geneplot <- ggplot(GeneCountHeat, aes(x = Round, y = NewChr, fill = logDensity, label = Count)) + 
-  geom_tile() + 
-  geom_label(label.size = NA, fill = NA, size = 2) + ## tile label size
-  scale_fill_gradient(low = "white", high = "red") +
-  labs(title = "ggplot2 Heatmap") +
-  theme_minimal() +
-  theme(plot.title = element_blank(), axis.title.x = element_blank(), 
-        axis.title.y = element_blank(), legend.position = "none", axis.text=element_text(size=6))
+# Desired chromosome/scaffold order
+main_chr <- c("Chr2", "Chr3", "Chr4", "Chr5", "Chr6","MT", "sc25", "sc11", "sc07")
 
-#ggsave(plot = Geneplot, width = 4.0, height = 5.0, units = "in", dpi = 300,filename = "Figures/Figure S3 showing number of genes with atleast one SNP on any scaffold.jpg")
+# Create ordered scaffold list
+scaffold_order <- GeneCountHeat %>%
+  distinct(BtName, NewChr, Size) %>%
+  arrange(match(BtName, main_chr, nomatch = 999),desc(Size)) %>%
+  pull(NewChr)
+
+# Apply order to y-axis
+GeneCountHeat <- GeneCountHeat %>%mutate(NewChr = factor(NewChr, levels = rev(scaffold_order)))
+
+# Heatmap
+Geneplot <- ggplot(GeneCountHeat,aes(x = Round,y = NewChr,fill = logDensity,label = Count)) + 
+  geom_tile() + geom_label(label.size = NA,fill = NA,size = 2) +
+  scale_fill_gradient(low = "white",high = "red") +
+  labs(title = "ggplot2 Heatmap") +theme_minimal() +
+  theme(plot.title = element_blank(),axis.title.x = element_blank(), axis.title.y = element_blank(),
+    legend.position = "none",axis.text = element_text(size = 6))
+
+
+
+ggsave(plot = Geneplot, width = 4.0, height = 5.0, units = "in", dpi = 300,filename = "Figures/Figure S3 showing number of genes with atleast one SNP on any scaffold.jpg")
+
 
 #________________________Make Table X+2_____________
 
