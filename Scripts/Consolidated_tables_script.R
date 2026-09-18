@@ -310,10 +310,10 @@ Geneplot <- ggplot(GeneCountHeat, aes(x = Round, y = NewChr, fill = logDensity, 
   theme(plot.title = element_blank(), axis.title.x = element_blank(), 
         axis.title.y = element_blank(), legend.position = "none", axis.text=element_text(size=6))
 
-#ggsave(plot = Geneplot, width = 4.0, height = 5.0, units = "in", dpi = 300,filename = "Figures/Figure S3 showing overlapping genes in the three QTL generations.jpg")
-
+#ggsave(plot = Geneplot, width = 4.0, height = 5.0, units = "in", dpi = 300,filename = "Figures/Figure S3 showing number of genes with atleast one SNP on any scaffold.jpg")
 
 #________________________Make Table X+2_____________
+
 ############## Supplementary table with all significant SNPs and their directionality
 Alleles_all <- read.delim("Geneoverlap/All_AF_allsigSNPs.txt", header=T) %>% 
   dplyr::select(1,2,3,5,4,6) %>% 
